@@ -48,5 +48,14 @@
       "de",
       "us"
     ]
-  }
+  },
+    {
+        "name": "Piratebay",
+        "url": "https://thepiratebay.org/",
+        "icon": "https://thepiratebay.org/favicon.ico",
+        "category": "Torrent",
+        "languages": [
+            "us"
+        ]
+    }
 ]

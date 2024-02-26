@@ -21,7 +21,7 @@ const AsideElement = () => {
                         </li>
                     ))}
                 </ul>
-                <h3 className="text-darkgray-0 font-semibold pb-1 border-b-[1px] pl-2 border-b-darkgray-700 mb-2">Jump</h3>
+                <h3 className="text-darkgray-0 font-semibold py-1 pt-2 border-b-[1px] pl-2  border-b-darkgray-700 mb-2">Jump</h3>
                 <ul
                     className={"mt-4"}
                 >

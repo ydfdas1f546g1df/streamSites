@@ -4,13 +4,20 @@
     "url": "https://s.to",
     "icon": "https://s.to/favicon.ico",
     "category": "series",
-    "languages": ["de", "us"]
+    "languages": ["de", "en"]
   },
   {
     "name": "Aniworld",
     "url": "https://aniworld.to",
     "icon": "https://aniworld.to/favicon.ico",
     "category": "anime",
-    "languages": ["de", "us", "jp", "cn","kr"]
+    "languages": ["de", "en", "jp", "cn","kr"]
+  },
+  {
+    "name": "aniworld_scraper",
+    "url": "https://github.com/wolfswolke/aniworld_scraper",
+    "icon": "https://github.com/favicon.ico",
+    "category": "Scrapper",
+    "languages": []
   }
 ]

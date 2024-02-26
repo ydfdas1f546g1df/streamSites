@@ -57,14 +57,5 @@
         "languages": [
             "us"
         ]
-    },
-    {
-      "name": "Data-File",
-        "url": "https://github.com/ydfdas1f546g1df/streamSites/blob/b082cbe263e25399aa6b86f1a5ad7690f238aa4e/src/data/data.json",
-        "icon": "https://github.com/favicon.ico",
-        "category": "Data",
-        "languages": [
-        ]
-      
     }
 ]

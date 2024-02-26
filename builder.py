@@ -28,9 +28,15 @@ def readme_builder(data):
         for category in data:
             file.write(f"## {category}\n")
             for item in data[category]:
-                file.write(f"* [{item['name']}]({item['url']})\n")
+                file.write(f"* [{item['name']}]({item['url']})")
+                for lang in item["languages"]:
+                    file.write(f" {language_flag_builder(lang)}")
             file.write("\n")
 
+
+def language_flag_builder(language):
+    return f"![{language}](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/{language}.png)"
+    
 
 def build_readme_table_of_contents(file, data):
     file.write("# Table of Contents\n")

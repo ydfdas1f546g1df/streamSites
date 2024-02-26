@@ -1,0 +1,16 @@
+[
+  {
+    "name": "s.to",
+    "url": "https://s.to",
+    "icon": "https://s.to/favicon.ico",
+    "category": "series",
+    "languages": ["de", "en"]
+  },
+  {
+    "name": "Aniworld",
+    "url": "https://aniworld.to",
+    "icon": "https://aniworld.to/favicon.ico",
+    "category": "anime",
+    "languages": ["de", "en", "jp", "cn","kr"]
+  }
+]

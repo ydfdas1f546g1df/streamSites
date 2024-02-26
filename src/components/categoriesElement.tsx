@@ -1,12 +1,11 @@
 import CategoryElement from "./categoryElement.tsx";
-import getCategories from "../utils/getCategories.ts";
+import SiteInterface from "@/interfaces/siteInterface.ts";
 
-const CategoriesElement = () => {
-    const categories = getCategories();
-
+const CategoriesElement = ({categories}: { categories: { [key: string]: SiteInterface[] } }) => {
     return (
         <>
             {
+                Object.keys(categories).length === 0 ? <h1 className={"text-center text-2xl font-semibold mt-4"}>No sites found</h1> :
                 Object.keys(categories).map((category: string, index: number) => (
                     <CategoryElement
                         key={index}
@@ -18,7 +17,6 @@ const CategoriesElement = () => {
         </>
     )
 }
-
 
 
 export default CategoriesElement;

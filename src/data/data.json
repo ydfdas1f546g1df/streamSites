@@ -4,17 +4,26 @@
     "url": "https://s.to",
     "icon": "https://s.to/favicon.ico",
     "category": "Series",
-    "languages": ["de", "us"]
+    "languages": [
+      "de",
+      "us"
+    ]
   },
   {
     "name": "Aniworld",
     "url": "https://aniworld.to",
     "icon": "https://aniworld.to/favicon.ico",
     "category": "Anime",
-    "languages": ["de", "us", "jp", "cn","kr"]
+    "languages": [
+      "de",
+      "us",
+      "jp",
+      "cn",
+      "kr"
+    ]
   },
   {
-    "name": "Aniworld.to / s.to Scraper",
+    "name": "Aniworld Scraper",
     "url": "https://github.com/wolfswolke/aniworld_scraper",
     "icon": "https://github.com/favicon.ico",
     "category": "Scrapper",
@@ -25,6 +34,19 @@
     "url": "https://kinox.to",
     "icon": "https://kinox.today/templates/Kinox/gr/favicon.ico",
     "category": "Movies",
-    "languages": ["de","us"]
+    "languages": [
+      "de",
+      "us"
+    ]
+  },
+  {
+    "name": "HDFilme",
+    "url": "https://hdfilme.to/",
+    "icon": "https://hdfilme.to/templates/hdfilme/images/logo-hdfilme.svg",
+    "category": "Movies",
+    "languages": [
+      "de",
+      "us"
+    ]
   }
 ]

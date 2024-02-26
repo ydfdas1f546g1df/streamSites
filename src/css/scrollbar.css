@@ -1,0 +1,22 @@
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #27272a;
+}
+
+/* Handle */
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background: #27272a; /* Background color of the thumb */
+    border-radius: 5px; /* Border radius */
+    transition: background-color 0.3s ease-in-out; /* Transition background color */
+}
+
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #8e8e96;
+}

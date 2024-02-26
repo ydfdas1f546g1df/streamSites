@@ -1,4 +1,4 @@
-import SiteInterface from "@/interfaces/siteInterface.tsx";
+import SiteInterface from "@/interfaces/siteInterface.ts";
 import data from "@/data/data.json";
 
 function getCategories() {

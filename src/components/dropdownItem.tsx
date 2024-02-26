@@ -1,5 +1,5 @@
 import {useState} from "react";
-import SiteInterface from "@/interfaces/siteInterface.tsx";
+import SiteInterface from "@/interfaces/siteInterface.ts";
 
 
 const DropdownItem = ({ categoryName, sitesData }: { categoryName: string, sitesData: SiteInterface[] }) => {
@@ -9,17 +9,18 @@ const DropdownItem = ({ categoryName, sitesData }: { categoryName: string, sites
         <div>
             <div
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex justify-between"
-                style={{ cursor: 'pointer' }}
+                className="flex justify-between cursor-pointer"
             >
-                <a
-                    href={`#${categoryName}`}
-                    className="text-darkgray-100 hover:bg-darkgray-700 rounded px-2 py-1 w-full flex items-center"
+                <p
+                    className="text-darkgray-100 hover:bg-darkgray-700 rounded px-2 py-1 w-full flex items-center cursor-pointer"
                 >
                     {categoryName} {dropdownIcon(isOpen)}
-                </a>
+                </p>
             </div>
-            <ul style={{ maxHeight: isOpen ? '1000px' : '0', overflow: 'hidden', transition: 'max-height 0.3s ease-in-out' }}>
+            <ul 
+                className={"ease-in-out duration-200"}
+                style={{ maxHeight: isOpen ? '500px' : '0', overflow: 'hidden', transition: 'max-height 0.3s ease-in-out' }}
+            >
                 {isOpen &&
                     sitesData.map((element: SiteInterface, subIndex: number) => (
                         <li

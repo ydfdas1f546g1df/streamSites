@@ -14,7 +14,7 @@
     "languages": ["de", "us", "jp", "cn","kr"]
   },
   {
-    "name": "aniworld_scraper",
+    "name": "Aniworld.to / s.to Scraper",
     "url": "https://github.com/wolfswolke/aniworld_scraper",
     "icon": "https://github.com/favicon.ico",
     "category": "Scrapper",

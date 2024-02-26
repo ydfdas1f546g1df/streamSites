@@ -1,11 +1,14 @@
 # Table of Contents
-* [series](#series)
-* [anime](#anime)
+* [Show](#Show)
+* [Anime](#Anime)
 * [Scrapper](#Scrapper)
+* [Movies](#Movies)
 
-## series
-<a href='https://s.to' style='display: flex; align-items: center;'><img src='https://s.to/favicon.ico' align='left' height='16' width='16'>&nbsp;-&nbsp;<span>s.to</span>&nbsp;-&nbsp; <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png'/>  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/> </a>
-## anime
-<a href='https://aniworld.to' style='display: flex; align-items: center;'><img src='https://aniworld.to/favicon.ico' align='left' height='16' width='16'>&nbsp;-&nbsp;<span>Aniworld</span>&nbsp;-&nbsp; <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png'/>  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png'/>  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png'/>  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png'/> </a>
+## Show
+* [s.to](https://s.to) ![de](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png) ![en](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/en.png)
+## Anime
+* [Aniworld](https://aniworld.to) ![de](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png) ![us](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png) ![jp](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png) ![cn](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png) ![kr](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png)* [Aniworld](https://aniworld.to) ![de](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png) ![us](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png) ![jp](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png) ![cn](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png) ![kr](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png)
 ## Scrapper
-<a href='https://github.com/wolfswolke/aniworld_scraper' style='display: flex; align-items: center;'><img src='https://github.com/favicon.ico' align='left' height='16' width='16'>&nbsp;-&nbsp;<span>aniworld_scraper</span>&nbsp;-&nbsp;</a>
+* [aniworld_scraper](https://github.com/wolfswolke/aniworld_scraper)
+## Movies
+* [Kinox](https://kinox.to) ![de](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png) ![us](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png)

@@ -1,5 +1,6 @@
 # Table of Contents
 * [Anime](#Anime)
+* [Data](#Data)
 * [Movies](#Movies)
 * [Scrapper](#Scrapper)
 * [Series](#Series)
@@ -16,6 +17,16 @@
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png'/>
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png'/>
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png'/>
+</a>
+
+<br/>
+
+## Data
+<a href='https://github.com/ydfdas1f546g1df/streamSites/blob/b082cbe263e25399aa6b86f1a5ad7690f238aa4e/src/data/data.json' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://github.com/favicon.ico' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>Data-File</span>
+&nbsp;-&nbsp;
 </a>
 
 <br/>

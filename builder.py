@@ -37,8 +37,8 @@ def readme_builder(data):
             file.write(f"## {category}\n")
             for item in data[category]:
                 file.write(f"<a href='{item['url']}' style='display: flex; align-items: center;'>"
-                           f"<img src='{item['icon']}' align='left' height='16' width='16'>"
-                           f"&nbsp;-&nbsp;<span>{item['name']}</span>&nbsp;-&nbsp;")
+                           f"\n<img src='{item['icon']}' align='left' height='16' width='16'>"
+                           f"\n&nbsp;-&nbsp;\n<span>{item['name']}</span>\n&nbsp;-&nbsp;\n")
                 for lang in item["languages"]:
                     file.write(f" <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/{lang}.png'/>\n")
                 file.write("</a>\n")

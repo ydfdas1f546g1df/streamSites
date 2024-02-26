@@ -3,14 +3,14 @@
     "name": "s.to",
     "url": "https://s.to",
     "icon": "https://s.to/favicon.ico",
-    "category": "series",
+    "category": "Show",
     "languages": ["de", "en"]
   },
   {
     "name": "Aniworld",
     "url": "https://aniworld.to",
     "icon": "https://aniworld.to/favicon.ico",
-    "category": "anime",
+    "category": "Anime",
     "languages": ["de", "en", "jp", "cn","kr"]
   },
   {
@@ -18,6 +18,13 @@
     "url": "https://github.com/wolfswolke/aniworld_scraper",
     "icon": "https://github.com/favicon.ico",
     "category": "Scrapper",
+    "languages": []
+  }
+  {
+    "name": "Kinox",
+    "url": "https://kinox.to",
+    "icon": "https://kinox.to/favicon.ico",
+    "category": "Movies",
     "languages": []
   }
 ]

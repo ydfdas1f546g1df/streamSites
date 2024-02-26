@@ -1,30 +1,66 @@
-# React + TypeScript + Vite
+# Table of Contents
+* [Anime](#Anime)
+* [Movies](#Movies)
+* [Scrapper](#Scrapper)
+* [Series](#Series)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Anime
+<a href='https://aniworld.to' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://aniworld.to/favicon.ico' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>Aniworld</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png'/>
+</a>
 
-Currently, two official plugins are available:
+<br/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Movies
+<a href='https://hdfilme.to/' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://hdfilme.to/templates/hdfilme/images/logo-hdfilme.svg' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>HDFilme</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+</a>
 
-## Expanding the ESLint configuration
+<br/>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<a href='https://kinox.to' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://kinox.today/templates/Kinox/gr/favicon.ico' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>Kinox</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+</a>
 
-- Configure the top-level `parserOptions` property like this:
+<br/>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Scrapper
+<a href='https://github.com/wolfswolke/aniworld_scraper' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://github.com/favicon.ico' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>Aniworld Scraper</span>
+&nbsp;-&nbsp;
+</a>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<br/>
+
+## Series
+<a href='https://s.to' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://s.to/favicon.ico' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>s.to</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/de.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+</a>
+
+<br/>
+

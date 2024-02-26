@@ -28,14 +28,17 @@ def readme_builder(data):
         for category in data:
             file.write(f"## {category}\n")
             for item in data[category]:
-                file.write(f"* [{item['name']}]({item['url']})")
+                file.write(f"<a href='{item['url']}' style='display: flex; align-items: center;'>"
+                           f"<img src='{item['icon']}' align='left' height='16' width='16'>"
+                           f"&nbsp;-&nbsp;<span>{item['name']}</span>&nbsp;-&nbsp;")
                 for lang in item["languages"]:
                     file.write(f" {language_flag_builder(lang)}")
+                file.write("</a>")
             file.write("\n")
 
 
 def language_flag_builder(language):
-    return f"![{language}](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/{language}.png)"
+    return f"<img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/{language}.png'/> "
     
 
 def build_readme_table_of_contents(file, data):

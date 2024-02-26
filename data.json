@@ -4,14 +4,14 @@
     "url": "https://s.to",
     "icon": "https://s.to/favicon.ico",
     "category": "series",
-    "languages": ["de", "en"]
+    "languages": ["de", "us"]
   },
   {
     "name": "Aniworld",
     "url": "https://aniworld.to",
     "icon": "https://aniworld.to/favicon.ico",
     "category": "anime",
-    "languages": ["de", "en", "jp", "cn","kr"]
+    "languages": ["de", "us", "jp", "cn","kr"]
   },
   {
     "name": "aniworld_scraper",

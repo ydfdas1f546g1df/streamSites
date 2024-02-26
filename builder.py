@@ -41,7 +41,7 @@ def readme_builder(data):
                 for lang in item["languages"]:
                     file.write(f" <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/{lang}.png'/>\n")
                 file.write("</a>")
-            file.write("\n")
+            file.write("\n\n")
 # def readme_builder(data):
 #     with open("README.md", "w") as file:
 #         build_readme_table_of_contents(file, data)

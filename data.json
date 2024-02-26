@@ -13,4 +13,11 @@
     "category": "anime",
     "languages": ["de", "en", "jp", "cn","kr"]
   }
+  {
+    "name": "aniworld_scraper",
+    "url": "https://github.com/wolfswolke/aniworld_scraper",
+    "icon": "https://github.com/favicon.ico",
+    "category": "Scrapper",
+    "languages": []
+  }
 ]

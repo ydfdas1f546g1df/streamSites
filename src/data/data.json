@@ -23,15 +23,8 @@
   {
     "name": "Kinox",
     "url": "https://kinox.to",
-    "icon": "https://kinox.to/favicon.ico",
+    "icon": "https://kinox.today/templates/Kinox/gr/favicon.ico",
     "category": "Movies",
     "languages": ["de","us"]
-  },
-  {
-    "name": "Aniworld",
-    "url": "https://aniworld.to",
-    "icon": "https://aniworld.to/favicon.ico",
-    "category": "Anime",
-    "languages": ["de", "us", "jp", "cn","kr"]
   }
 ]

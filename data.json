@@ -25,6 +25,6 @@
     "url": "https://kinox.to",
     "icon": "https://kinox.to/favicon.ico",
     "category": "Movies",
-    "languages": []
+    "languages": ["de","us"]
   }
 ]

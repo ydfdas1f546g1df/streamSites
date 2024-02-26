@@ -12,7 +12,7 @@
     "icon": "https://aniworld.to/favicon.ico",
     "category": "anime",
     "languages": ["de", "en", "jp", "cn","kr"]
-  }
+  },
   {
     "name": "aniworld_scraper",
     "url": "https://github.com/wolfswolke/aniworld_scraper",

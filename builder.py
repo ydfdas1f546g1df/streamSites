@@ -9,6 +9,7 @@ def main():
         data = json.loads(data)
         categorys = categorise_data(data)
         categorys = sort_data_in_categorys(categorys)
+        categorys = dict(sorted(categorys.items()))
         if BUILD_README:
             readme_builder(categorys)
 
@@ -40,7 +41,7 @@ def readme_builder(data):
                            f"&nbsp;-&nbsp;<span>{item['name']}</span>&nbsp;-&nbsp;")
                 for lang in item["languages"]:
                     file.write(f" <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/{lang}.png'/>\n")
-                file.write("</a>")
+                file.write("</a>\n")
             file.write("\n\n")
 # def readme_builder(data):
 #     with open("README.md", "w") as file:

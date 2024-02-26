@@ -5,7 +5,7 @@
 * [Series](#Series)
 
 ## Anime
-<a href='https://aniworld.to' style='display: flex; align-items: center;'>
+<a href='https://aniworld.to' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://aniworld.to/favicon.ico' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
 <span>Aniworld</span>
@@ -16,7 +16,10 @@
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png'/>
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/kr.png'/>
 </a>
-<a href='https://aniworld.to' style='display: flex; align-items: center;'>
+
+<br/>
+
+<a href='https://aniworld.to' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://aniworld.to/favicon.ico' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
 <span>Aniworld</span>
@@ -31,7 +34,7 @@
 <br/>
 
 ## Movies
-<a href='https://kinox.to' style='display: flex; align-items: center;'>
+<a href='https://kinox.to' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://kinox.to/favicon.ico' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
 <span>Kinox</span>
@@ -43,7 +46,7 @@
 <br/>
 
 ## Scrapper
-<a href='https://github.com/wolfswolke/aniworld_scraper' style='display: flex; align-items: center;'>
+<a href='https://github.com/wolfswolke/aniworld_scraper' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://github.com/favicon.ico' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
 <span>Aniworld.to / s.to Scraper</span>
@@ -53,7 +56,7 @@
 <br/>
 
 ## Series
-<a href='https://s.to' style='display: flex; align-items: center;'>
+<a href='https://s.to' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://s.to/favicon.ico' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
 <span>s.to</span>

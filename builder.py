@@ -36,7 +36,7 @@ def readme_builder(data):
         for category in data:
             file.write(f"## {category}\n")
             for item in data[category]:
-                file.write(f"<a href='{item['url']}' style='display: flex; align-items: center;'>\n"
+                file.write(f"<a href='{item['url']}' style='display: flex; align-items: center; text-decoration: none;'>\n"
                            f"<img src='{item['icon']}' align='left' height='16' width='16'>\n"
                            f"&nbsp;-&nbsp;\n<span>{item['name']}</span>\n&nbsp;-&nbsp;\n")
                 for lang in item["languages"]:

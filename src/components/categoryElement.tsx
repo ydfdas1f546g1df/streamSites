@@ -1,5 +1,5 @@
-import SiteElement from './siteElement';
-import SiteInterface from '../interfaces/siteInterface.ts';
+import SiteElement from '@/components/siteElement.tsx';
+import SiteInterface from '@/interfaces/siteInterface.ts';
 
 const CategoryElement = ({ sitesData, categoryName }: { sitesData: SiteInterface[]; categoryName: string; }) => {
     return (

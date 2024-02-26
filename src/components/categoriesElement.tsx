@@ -1,4 +1,4 @@
-import CategoryElement from "./categoryElement.tsx";
+import CategoryElement from "@/components/categoryElement.tsx";
 import SiteInterface from "@/interfaces/siteInterface.ts";
 
 const CategoriesElement = ({categories}: { categories: { [key: string]: SiteInterface[] } }) => {

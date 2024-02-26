@@ -1,4 +1,4 @@
-import SiteInterface from "../interfaces/siteInterface.ts";
+import SiteInterface from "@/interfaces/siteInterface.ts";
 
 const SiteElement = (site: SiteInterface) => {
     return (

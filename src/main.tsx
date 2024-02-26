@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './css/tailwind.css'
-import './css/scrollbar.css'
+import App from '@/App.tsx'
+import '@/css/tailwind.css'
+import '@/css/scrollbar.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

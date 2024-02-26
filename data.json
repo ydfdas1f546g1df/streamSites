@@ -26,5 +26,12 @@
     "icon": "https://kinox.to/favicon.ico",
     "category": "Movies",
     "languages": ["de","us"]
+  },
+  {
+    "name": "Aniworld",
+    "url": "https://aniworld.to",
+    "icon": "https://aniworld.to/favicon.ico",
+    "category": "Anime",
+    "languages": ["de", "en", "jp", "cn","kr"]
   }
 ]

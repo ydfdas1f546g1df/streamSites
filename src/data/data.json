@@ -57,5 +57,33 @@
         "languages": [
             "us"
         ]
-    }
+    },
+  {
+    "name": "1337x",
+    "url": "https://1337x.to/",
+    "icon": "https://1337x.to/favicon.ico",
+    "category": "Torrent",
+    "languages": [
+      "us"
+    ]
+  },
+  {
+    "name": "bs.to",
+    "url": "https://bs.to",
+    "icon": "https://bs.to/favicon.ico",
+    "category": "Series",
+    "languages": [
+      "de",
+      "us"
+    ]
+  },
+  {
+    "name": "FMovies",
+    "url": "https://fmoviesz.to/home",
+    "icon": "https://fmoviesz.to/favicon.ico",
+    "category": "Movies",
+    "languages": [
+      "us"
+    ]
+  }
 ]

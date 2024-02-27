@@ -49,15 +49,15 @@
       "us"
     ]
   },
-    {
-        "name": "Piratebay",
-        "url": "https://thepiratebay.org/",
-        "icon": "https://thepiratebay.org/favicon.ico",
-        "category": "Torrent",
-        "languages": [
-            "us"
-        ]
-    },
+  {
+    "name": "Piratebay",
+    "url": "https://thepiratebay.org/",
+    "icon": "https://thepiratebay.org/favicon.ico",
+    "category": "Torrent",
+    "languages": [
+      "us"
+    ]
+  },
   {
     "name": "1337x",
     "url": "https://1337x.to/",
@@ -82,6 +82,15 @@
     "url": "https://fmoviesz.to/home",
     "icon": "https://fmoviesz.to/assets/sites/fmovies/favicon.png",
     "category": "Movies",
+    "languages": [
+      "us"
+    ]
+  },
+  {
+    "name": "YTS",
+    "url": "https://yts.mx/",
+    "icon": "https://yts.mx/assets/images/website/favicon.ico",
+    "category": "torrent",
     "languages": [
       "us"
     ]

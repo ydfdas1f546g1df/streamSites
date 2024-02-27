@@ -6,7 +6,6 @@
 * [Scrapper](#Scrapper)
 * [Series](#Series)
 * [Torrent](#Torrent)
-* [torrent](#torrent)
 
 ## Anime
 <a href='https://aniworld.to' style='display: flex; align-items: center; text-decoration: none;'>
@@ -110,7 +109,6 @@
 
 <br/>
 
-## torrent
 <a href='https://yts.mx/' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://yts.mx/assets/images/website/favicon.ico' align='left' height='16' width='16'>
 &nbsp;-&nbsp;

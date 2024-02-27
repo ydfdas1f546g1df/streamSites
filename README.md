@@ -22,7 +22,7 @@
 
 ## Movies
 <a href='https://fmoviesz.to/home' style='display: flex; align-items: center; text-decoration: none;'>
-<img src='https://fmoviesz.to/favicon.ico' align='left' height='16' width='16'>
+<img src='https://fmoviesz.to/assets/sites/fmovies/favicon.png' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
 <span>FMovies</span>
 &nbsp;-&nbsp;

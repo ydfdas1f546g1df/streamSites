@@ -32,6 +32,7 @@ def sort_data_in_categorys(data):
 
 def readme_builder(data):
     with open("README.md", "w") as file:
+        file.write('<a href="https://ydfdas1f546g1df.github.io/streamSites/">Web Page</a>')
         build_readme_table_of_contents(file, data)
         for category in data:
             file.write(f"## {category}\n")

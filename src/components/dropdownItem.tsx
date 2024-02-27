@@ -14,7 +14,7 @@ const DropdownItem = ({ categoryName, sitesData }: { categoryName: string, sites
                 <p
                     className="text-darkgray-100 hover:bg-darkgray-700 rounded px-2 py-1 w-full flex items-center cursor-pointer"
                 >
-                    {categoryName} {dropdownIcon(isOpen)}
+                    {dropdownIcon(isOpen)} {categoryName} 
                 </p>
             </div>
             <ul
@@ -58,10 +58,27 @@ function dropdownIcon(isOpen: boolean) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M5 15l7-7 7 7"
+                d="M19 9l-7 7-7-7"
             />
         </svg>
+
+       
     } else {
+        // return <svg
+        //     xmlns="http://www.w3.org/2000/svg"
+        //     className="h-6 w-6 text-darkgray-100"
+        //     fill="none"
+        //     viewBox="0 0 24 24"
+        //     stroke="currentColor"
+        // >
+        //     <path
+        //         strokeLinecap="round"
+        //         strokeLinejoin="round"
+        //         strokeWidth={2}
+        //         d="M5 15l7-7 7 7"
+        //     />
+        // </svg>
+        // make a rigth arrow
         return <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 text-darkgray-100"
@@ -72,10 +89,11 @@ function dropdownIcon(isOpen: boolean) {
             <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
+                strokeWidth="2"
+                d="M9 5l7 7-7 7"
             />
         </svg>
+
     }
 }
 

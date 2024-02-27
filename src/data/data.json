@@ -58,13 +58,32 @@
             "us"
         ]
     },
-    {
-      "name": "Data-File",
-        "url": "https://github.com/ydfdas1f546g1df/streamSites/blob/b082cbe263e25399aa6b86f1a5ad7690f238aa4e/src/data/data.json",
-        "icon": "https://github.com/favicon.ico",
-        "category": "Data",
-        "languages": [
-        ]
-      
-    }
+  {
+    "name": "1337x",
+    "url": "https://1337x.to/",
+    "icon": "https://1337x.to/favicon.ico",
+    "category": "Torrent",
+    "languages": [
+      "us"
+    ]
+  },
+  {
+    "name": "bs.to",
+    "url": "https://bs.to",
+    "icon": "https://bs.to/favicon.ico",
+    "category": "Series",
+    "languages": [
+      "de",
+      "us"
+    ]
+  },
+  {
+    "name": "FMovies",
+    "url": "https://fmoviesz.to/home",
+    "icon": "https://fmoviesz.to/assets/sites/fmovies/favicon.png",
+    "category": "Movies",
+    "languages": [
+      "us"
+    ]
+  }
 ]

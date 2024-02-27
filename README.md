@@ -6,6 +6,7 @@
 * [Scrapper](#Scrapper)
 * [Series](#Series)
 * [Torrent](#Torrent)
+* [torrent](#torrent)
 
 ## Anime
 <a href='https://aniworld.to' style='display: flex; align-items: center; text-decoration: none;'>
@@ -103,6 +104,17 @@
 <img src='https://thepiratebay.org/favicon.ico' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
 <span>Piratebay</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+</a>
+
+<br/>
+
+## torrent
+<a href='https://yts.mx/' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://yts.mx/assets/images/website/favicon.ico' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>YTS</span>
 &nbsp;-&nbsp;
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
 </a>

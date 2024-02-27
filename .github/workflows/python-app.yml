@@ -33,8 +33,6 @@ jobs:
     - name: Run python
       run: |
         python builder.py
-    - name: sdv
-      run: echo '[Web Page](https://ydfdas1f546g1df.github.io/streamSites/)' >> README.md
     - name: Commit and Push README.md
       run: |
         git config --local user.email "action@github.com"

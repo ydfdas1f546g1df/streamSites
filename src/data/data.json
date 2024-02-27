@@ -80,7 +80,7 @@
   {
     "name": "FMovies",
     "url": "https://fmoviesz.to/home",
-    "icon": "https://fmoviesz.to/favicon.ico",
+    "icon": "https://fmoviesz.to/assets/sites/fmovies/favicon.png",
     "category": "Movies",
     "languages": [
       "us"

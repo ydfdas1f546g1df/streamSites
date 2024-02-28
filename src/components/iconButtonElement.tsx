@@ -6,7 +6,7 @@ const IconButtonElement = ({url, svgElement, toolTip}: { url: string, svgElement
         <a
             href={url}
             target={"_blank"}
-            className="mr-2">
+            className="mr-2 flex flex-col items-center justify-between">
             <div
                 className="group relative">
                 <button

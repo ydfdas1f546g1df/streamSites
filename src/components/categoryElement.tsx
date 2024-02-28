@@ -2,6 +2,7 @@ import SiteElement from '@/components/siteElement.tsx';
 import SiteInterface from '@/interfaces/siteInterface.ts';
 
 const CategoryElement = ({ sitesData, categoryName }: { sitesData: SiteInterface[]; categoryName: string; }) => {
+    
     return (
         <div
         className="px-4"

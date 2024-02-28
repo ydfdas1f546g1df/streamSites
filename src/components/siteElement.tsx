@@ -9,14 +9,14 @@ const SiteElement = (site: SiteInterface) => {
             className="border-darkgray-700 bg-darkgray-900 border-[1px] 
             hover:bg-darkgray-800 ease-in-out duration-200
             rounded h-36 aspect-square hover:text-darkgray-0 flex 
-            flex-col items-center p-4">
+            flex-col items-center justify-between p-3 ">
             <img
-                className={"w-12 aspect-square mx-auto text-ellipsis"}
+                className={"h-12 mx-auto"}
                 src={site.icon}
                 alt={site.name}
             />
             <h3
-                className="text-darkgray-50 text-center font-bold text-lg p-2 ease-out duration-200 transition-colors"
+                className="text-darkgray-50 text-center font-bold text-lg pb-1 whitespace-break-spaces ease-out duration-200 transition-colors w-full overflow-hidden overflow-ellipsis"
             >
                 {site.name}
             </h3>

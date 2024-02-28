@@ -17,12 +17,11 @@ function App() {
     const [selectedLanguages, setSelectedLanguages] = useState<string[]>(languages);
     const [selectedCategories, setSelectedCategories] = useState<string[]>(categories);
 
-    // language and category and filter
+    // language and category filter
     const filteredData: SiteInterface[] = data.filter((site) => {
         if (site.languages.length === 0 && selectedCategories.includes(site.category)) {
             return true;
         }
-
         return site.languages.some((language) => selectedLanguages.includes(language)) && selectedCategories.includes(site.category);
     });
     // search query filter
@@ -50,6 +49,8 @@ function App() {
     Object.keys(categoriesedData).forEach((category) => {
         categoriesedData[category].sort((a, b) => a.name.localeCompare(b.name));
     });
+
+
     return (
         <div className="bg-darkgray-900 text-darkgray-0 font-inter accent-darkgray-0 min-h-screen">
             <Header/>

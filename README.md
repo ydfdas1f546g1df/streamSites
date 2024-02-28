@@ -2,6 +2,7 @@
 
 # Table of Contents
 * [Anime](#Anime)
+* [Manga](#Manga)
 * [Movies](#Movies)
 * [Scrapper](#Scrapper)
 * [Series](#Series)
@@ -22,13 +23,34 @@
 
 <br/>
 
+## Manga
+<a href='https://manga-scans.com/' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://manga-scans.com/wp-content/uploads/2022/09/MANGA-SCANS.png' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>Manga Scans</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+</a>
+
+<br/>
+
 ## Movies
 <a href='https://fmoviesz.to/home' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://fmoviesz.to/assets/sites/fmovies/favicon.png' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
-<span>FMovies</span>
+<span>FMoviesz</span>
 &nbsp;-&nbsp;
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+</a>
+
+<br/>
+
+<a href='https://gomovies.sx/' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://img.gomovies.sx/xxrz/100x100/100/0e/4f/0e4f2afdf89885ca9c515789282ef837/0e4f2afdf89885ca9c515789282ef837.png' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>GoMovies</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/['us'].png'/>
 </a>
 
 <br/>
@@ -61,6 +83,7 @@
 &nbsp;-&nbsp;
 <span>Aniworld Scraper</span>
 &nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/.png'/>
 </a>
 
 <br/>

@@ -60,7 +60,7 @@
 &nbsp;-&nbsp;
 <span>GoMovies</span>
 &nbsp;-&nbsp;
- <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/['us'].png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
 </a>
 
 <br/>

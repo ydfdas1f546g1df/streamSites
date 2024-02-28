@@ -35,6 +35,18 @@
 
 <br/>
 
+<a href='https://anix.to/' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://anix.to/assets/sites/anix/favicon.png' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>Anix</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png'/>
+</a>
+
+<br/>
+
 ## Manga
 <a href='https://manga-scans.com/' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://manga-scans.com/wp-content/uploads/2022/09/MANGA-SCANS.png' align='left' height='16' width='16'>

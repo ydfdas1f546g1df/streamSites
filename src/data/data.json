@@ -114,5 +114,14 @@
     "languages": [
       "us"
     ]
+  },
+  {
+    "name": "Aniwatch",
+    "url": "https://aniwatch.to/",
+    "icon": "https://aniwatch.to/favicon.ico",
+    "category": "Anime",
+    "languages": [
+      "us"
+    ]
   }
 ]

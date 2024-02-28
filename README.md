@@ -15,6 +15,8 @@
 <span>Aniwatch</span>
 &nbsp;-&nbsp;
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png'/>
 </a>
 
 <br/>
@@ -93,7 +95,6 @@
 &nbsp;-&nbsp;
 <span>Aniworld Scraper</span>
 &nbsp;-&nbsp;
- <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/.png'/>
 </a>
 
 <br/>

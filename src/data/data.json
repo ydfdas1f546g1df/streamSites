@@ -123,5 +123,16 @@
       "jp",
       "cn"
     ]
+  },
+  {
+    "name": "Anix",
+    "url": "https://anix.to/",
+    "icon": "https://anix.to/assets/sites/anix/favicon.png",
+    "category": "Anime",
+    "languages": [
+      "us",
+      "jp",
+      "cn"
+    ]
   }
 ]

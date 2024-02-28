@@ -27,7 +27,9 @@
     "url": "https://github.com/wolfswolke/aniworld_scraper",
     "icon": "https://github.com/favicon.ico",
     "category": "Scrapper",
-    "languages": [""]
+    "languages": [
+      ""
+    ]
   },
   {
     "name": "Kinox",
@@ -101,9 +103,7 @@
     "icon": "https://img.gomovies.sx/xxrz/100x100/100/0e/4f/0e4f2afdf89885ca9c515789282ef837/0e4f2afdf89885ca9c515789282ef837.png",
     "category": "Movies",
     "languages": [
-      [
-        "us"
-      ]
+      "us"
     ]
   },
   {

@@ -27,9 +27,7 @@
     "url": "https://github.com/wolfswolke/aniworld_scraper",
     "icon": "https://github.com/favicon.ico",
     "category": "Scrapper",
-    "languages": [
-      ""
-    ]
+    "languages": []
   },
   {
     "name": "Kinox",
@@ -121,7 +119,9 @@
     "icon": "https://aniwatch.to/favicon.ico",
     "category": "Anime",
     "languages": [
-      "us"
+      "us",
+      "jp",
+      "cn"
     ]
   }
 ]

@@ -2,9 +2,12 @@ import Element = React.JSX.Element;
 import ToolTipElement from "@/components/toolTipElement.tsx";
 
 const IconButtonElement = ({url, svgElement, toolTip, newTab}: { url: string, svgElement: Element, toolTip: string, newTab: boolean }) => {
+    const location = window.location.href;
+    const githubPages = location.includes("streamSites")
+    
     return (
         <a
-            href={url}
+            href={githubPages && url.includes("https://") ? `/streamSites${url}` : url}
             target={newTab ? "_blank" : "_self"}
             className="mr-2 flex flex-col items-center justify-between"
         >

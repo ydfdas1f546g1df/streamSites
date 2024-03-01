@@ -55,10 +55,10 @@ function App() {
         <div className="bg-darkgray-900 text-darkgray-0 font-inter accent-darkgray-0 min-h-screen">
             <Header/>
             <div className="pt-16"></div>
-            <div className="flex gap-4 justify-center overflow-hidden">
+            <div className="flex gap-4 justify-center overflow-hidden h-full">
                 <AsideElement/>
                 <div className="flex-1 overflow-hidden min-h-screen" style={{
-                    maxHeight: "calc(100vh - 20px)",
+                    maxHeight: "calc(100vh - 8rem)",
                     overflowY: "auto",
                     scrollbarWidth: "none",
                     msOverflowStyle: "none"
@@ -66,7 +66,7 @@ function App() {
                     <CategoriesElement
                         categories={categoriesedData}
                     />
-                    <div className="pb-20"></div>
+                    <div className="pb-16"></div>
                 </div>
                 <FilterMenuElement
                     searchQueryHandler={setSearchQuery}

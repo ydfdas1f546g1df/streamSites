@@ -15,7 +15,7 @@ const FilterMenuElement = ({
 
     return (
         <div
-            className={"p-4"}
+            className={"p-4 flex flex-col h-full"}
         >
             <div>
                 <input

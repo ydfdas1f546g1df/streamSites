@@ -7,8 +7,7 @@ import colorListGen from "@/utils/colorListGen.ts";
 
 const CategoryCountChart = ({chartData}: { chartData: { [key: string]: SiteInterface[] } }) => {
     const categoriesCount: { count: number, category: string }[] = [];
-
-    console.log(chartData)
+    
     Object.keys(chartData).forEach((category) => {
         categoriesCount.push({count: chartData[category].length, category: category.toUpperCase()});
     });
@@ -18,7 +17,11 @@ const CategoryCountChart = ({chartData}: { chartData: { [key: string]: SiteInter
             id: 'arc',
             beforeDraw: chart => {
                 // Check if chart data and datasets are defined
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
                 if (chart?.data?.datasets?.length > 0 && chart.data.datasets[0]._meta?.length > 0) {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-expect-error
                     const vm = chart.getViewMeta(chart.data.datasets[0]._meta[0]);
                     const {x, y} = vm.center;
                     const radius = vm.radius[0];
@@ -46,7 +49,6 @@ const CategoryCountChart = ({chartData}: { chartData: { [key: string]: SiteInter
         endColor: "#00ffff",
         opacity: 1
     });
-    console.log(borderColor)
 
 
     const data = {

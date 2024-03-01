@@ -3,11 +3,11 @@ import ToolTipElement from "@/components/toolTipElement.tsx";
 
 const IconButtonElement = ({url, svgElement, toolTip, newTab}: { url: string, svgElement: Element, toolTip: string, newTab: boolean }) => {
     const location = window.location.href;
-    const githubPages = location.includes("streamSites")
+    const githubPages = location.includes("github.io/streamSites")
     
     return (
         <a
-            href={githubPages && url.includes("https://") ? `/streamSites${url}` : url}
+            href={githubPages ? `/streamSites${url}` : url}
             target={newTab ? "_blank" : "_self"}
             className="mr-2 flex flex-col items-center justify-between"
         >

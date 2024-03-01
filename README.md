@@ -9,18 +9,6 @@
 * [Torrent](#Torrent)
 
 ## Anime
-<a href='https://aniwatch.to/' style='display: flex; align-items: center; text-decoration: none;'>
-<img src='https://aniwatch.to/favicon.ico' align='left' height='16' width='16'>
-&nbsp;-&nbsp;
-<span>Aniwatch</span>
-&nbsp;-&nbsp;
- <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
- <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png'/>
- <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png'/>
-</a>
-
-<br/>
-
 <a href='https://aniworld.to' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://aniworld.to/favicon.ico' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
@@ -39,6 +27,18 @@
 <img src='https://anix.to/assets/sites/anix/favicon.png' align='left' height='16' width='16'>
 &nbsp;-&nbsp;
 <span>Anix</span>
+&nbsp;-&nbsp;
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png'/>
+ <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png'/>
+</a>
+
+<br/>
+
+<a href='https://hianime.to/' style='display: flex; align-items: center; text-decoration: none;'>
+<img src='https://hianime.to/favicon.ico' align='left' height='16' width='16'>
+&nbsp;-&nbsp;
+<span>H!anime</span>
 &nbsp;-&nbsp;
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/jp.png'/>

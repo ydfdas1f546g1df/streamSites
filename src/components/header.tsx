@@ -30,26 +30,63 @@ const Header = () => {
         </svg>
     )
 
+    const dashboardSVG = (
+        <svg xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 576 512"
+             className="h-4 w-4 fill-current"
+        >
+            <path
+                d="M304 240V16.6c0-9 7-16.6 16-16.6C443.7 0 544 100.3 544 224c0 9-7.6 16-16.6 16H304zM32 272C32 150.7 122.1 50.3 239 34.3c9.2-1.3 17 6.1 17 15.4V288L412.5 444.5c6.7 6.7 6.2 17.7-1.5 23.1C371.8 495.6 323.8 512 272 512C139.5 512 32 404.6 32 272zm526.4 16c9.3 0 16.6 7.8 15.4 17c-7.7 55.9-34.6 105.6-73.9 142.3c-6 5.6-15.4 5.2-21.2-.7L320 288H558.4z"/>
+        </svg>
+    )
+
+    const adminSVG = (
+        <svg xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 448 512"
+             className="h-4 w-4 fill-current"
+        >
+            <path
+                d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7H162.5c0 0 0 0 .1 0H168 280h5.5c0 0 0 0 .1 0H417.3c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2H224 204.3c-12.4 0-20.1 13.6-13.7 24.2z"/>
+        </svg>
+    )
     return (
         <header>
             <div
                 className="flex justify-between items-center border-b-[1px] border-darkgray-700 text-darkgray-0 p-4 fixed top-0 right-0 left-0 backdrop-blur">
-                <div className="text-2xl font-bold">StreamSites</div>
+                <a
+                    className="text-2xl font-bold"
+                    href={"/"}
+                >StreamSites</a>
                 <div className="flex">
                     <IconButtonElement
                         url={"https://github.com/ydfdas1f546g1df/streamSites/blob/b082cbe263e25399aa6b86f1a5ad7690f238aa4e/src/data/data.json"}
                         svgElement={dataJsonSVG}
                         toolTip={"View data.json"}
+                        newTab={true}
                     />
                     <IconButtonElement
                         url={"https://github.com/ydfdas1f546g1df/streamSites"}
                         svgElement={githubSVG}
                         toolTip={"View on GitHub"}
+                        newTab={true}
                     />
                     <IconButtonElement
-                        url={"https://github.com/ydfdas1f546g1df/streamSites/issues/new"}
+                        url={"/request"}
                         svgElement={addSVG}
-                        toolTip={"Add a new site"}
+                        toolTip={"Request new site"}
+                        newTab={false}
+                    />
+                    <IconButtonElement
+                        url={"/admin"}
+                        svgElement={adminSVG}
+                        toolTip={"Admin Dashboard"}
+                        newTab={false}
+                    />
+                    <IconButtonElement
+                        url={"/dashboard"}
+                        svgElement={dashboardSVG}
+                        toolTip={"Info Dashboard"}
+                        newTab={false}
                     />
                 </div>
             </div>

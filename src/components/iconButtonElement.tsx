@@ -1,12 +1,13 @@
 import Element = React.JSX.Element;
 import ToolTipElement from "@/components/toolTipElement.tsx";
 
-const IconButtonElement = ({url, svgElement, toolTip}: { url: string, svgElement: Element, toolTip: string }) => {
+const IconButtonElement = ({url, svgElement, toolTip, newTab}: { url: string, svgElement: Element, toolTip: string, newTab: boolean }) => {
     return (
         <a
             href={url}
-            target={"_blank"}
-            className="mr-2 flex flex-col items-center justify-between">
+            target={newTab ? "_blank" : "_self"}
+            className="mr-2 flex flex-col items-center justify-between"
+        >
             <div
                 className="group relative">
                 <button

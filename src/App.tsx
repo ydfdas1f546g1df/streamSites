@@ -10,6 +10,8 @@ import Dashboard from "@/pages/dashboard.tsx";
 
 
 function App() {
+    const location = window.location.href;
+    const githubPages = location.includes("github.io/streamSites")
     return (
         <div className="bg-darkgray-900 text-darkgray-0 font-inter accent-darkgray-0 min-h-screen">
             <Header/>
@@ -17,11 +19,11 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Root/>}/>
-                    <Route path={"/login"} element={<Login/>}/>
-                    <Route path={"/request"} element={<RequestForm/>}/>
-                    <Route path={"/dashboard"} element={<Dashboard/>}/>
+                    <Route path={githubPages ? `/streamSites/login` : "/login"} element={<Login/>}/>
+                    <Route path={githubPages ? `/streamSites/request` : "/request"} element={<RequestForm/>}/>
+                    <Route path={githubPages ? `/streamSites/dashboard` : "/dashboard"} element={<Dashboard/>}/>
                     <Route element={<AdminRoutes/>}>
-                        <Route path={"/admin"} element={<AdminDashboard/>}/>
+                        <Route path={githubPages ? `/streamSites/admin` : "/admin"} element={<AdminDashboard/>}/>
                     </Route>
                     <Route path={"/*"} element={<Root/>}/>
                 </Routes>

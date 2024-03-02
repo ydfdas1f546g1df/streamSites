@@ -1,5 +1,3 @@
-import getLanguages from "@/utils/getLanguages.ts";
-import getCategories from "@/utils/getCategories.ts";
 import FilterMenuElementInterface from "@/interfaces/filterMenuInterface.ts";
 
 
@@ -8,10 +6,10 @@ const FilterMenuElement = ({
                                selectedLanguagesHandler,
                                selectedCategoriesHandler,
                                selectedLanguages,
-                               selectedCategories
+                               selectedCategories,
+                               languages,
+                               categories
                            }: FilterMenuElementInterface) => {
-    const languages = getLanguages();
-    const categories = getCategories();
 
     return (
         <div
@@ -63,7 +61,7 @@ const FilterMenuElement = ({
                 <h3 className={"font-semibold mt-6 pb-1 border-b-[1px] pl-2 border-b-darkgray-700 mb-2"}>Categories</h3>
                 <div>
                     {
-                        Object.keys(categories).map((category: string, index: number) => (
+                        categories.map((category: string, index: number) => (
                             <div
                                 key={index}
                                 className="flex gap-2 pl-2 mt-2 items-center text-darkgray-100 ease-in-out duration-200 transition-colors hover:text-darkgray-50"

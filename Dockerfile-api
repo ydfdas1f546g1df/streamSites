@@ -2,11 +2,13 @@ FROM node:latest
 
 WORKDIR /app
 
-RUN npm install express
+COPY ./server/package.json /app
 
-COPY ./api_routs.js /app
+RUN npm install
+
+COPY ./server/* /app/
 
 EXPOSE 4000
 
-CMD ["node", "api_routs.js"]
+CMD ["node", "server"]
 

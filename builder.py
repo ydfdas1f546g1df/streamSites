@@ -4,7 +4,7 @@ BUILD_README = True
 
 
 def main():
-    with open("src/data/data.json", "r") as file:
+    with open("server/data/sites.json", "r") as file:
         data = file.read()
         data = json.loads(data)
         categorys = categorise_data(data)
@@ -31,7 +31,7 @@ def sort_data_in_categorys(data):
 
 
 def readme_builder(data):
-    with open("README.md", "w") as file:
+    with open("SITES.md", "w") as file:
         file.write('<a href="https://ydfdas1f546g1df.github.io/streamSites/">Web Page</a>\n\n')
         build_readme_table_of_contents(file, data)
         for category in data:

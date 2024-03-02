@@ -1,6 +1,6 @@
 import SiteInterface from "@/interfaces/siteInterface.ts";
 
-const SiteElement = (site: SiteInterface) => {
+const SiteElement = ({site}: { site: SiteInterface }) => {
     return (
         <a
             href={site.url}

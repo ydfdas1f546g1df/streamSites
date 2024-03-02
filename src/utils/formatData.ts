@@ -1,7 +1,6 @@
 import SiteInterface from "@/interfaces/siteInterface.ts";
-import data from "@/data/data.json";
 
-function getCategories() {
+function formatData(data: SiteInterface[]) {
     const categories: { [key: string]: SiteInterface[] } = {};
 
     data.forEach((site) => {
@@ -25,4 +24,4 @@ function getCategories() {
     return categories;
 }
 
-export default getCategories;
+export default formatData;

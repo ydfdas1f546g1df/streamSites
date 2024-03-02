@@ -27,7 +27,13 @@
     "url": "https://github.com/wolfswolke/aniworld_scraper",
     "icon": "https://github.com/favicon.ico",
     "category": "Scrapper",
-    "languages": []
+    "languages": [
+      "de",
+      "us",
+      "jp",
+      "cn",
+      "kr"
+    ]
   },
   {
     "name": "Kinox",

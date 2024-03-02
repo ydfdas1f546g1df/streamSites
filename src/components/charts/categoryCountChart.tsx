@@ -1,90 +1,38 @@
 import SiteInterface from "@/interfaces/siteInterface.ts";
-import {Pie} from 'react-chartjs-2';
-import {Chart as ChartJS} from 'chart.js/auto';
-import {useEffect} from 'react';
-import colorListGen from "@/utils/colorListGen.ts";
+import {useEffect, useState} from 'react';
+import formatData from "@/utils/formatData.ts";
+import PieChartBase from "@/components/charts/pieChartBase.tsx";
 
 
-const CategoryCountChart = ({chartData}: { chartData: { [key: string]: SiteInterface[] } }) => {
-    const categoriesCount: { count: number, category: string }[] = [];
-    
-    Object.keys(chartData).forEach((category) => {
-        categoriesCount.push({count: chartData[category].length, category: category.toUpperCase()});
-    });
 
+const CategoryCountChart = () => {
+    const [chartData, setChartData] = useState<{ [key: string]: SiteInterface[] }>({});
     useEffect(() => {
-        ChartJS.register({
-            id: 'arc',
-            beforeDraw: chart => {
-                // Check if chart data and datasets are defined
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-                if (chart?.data?.datasets?.length > 0 && chart.data.datasets[0]._meta?.length > 0) {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-expect-error
-                    const vm = chart.getViewMeta(chart.data.datasets[0]._meta[0]);
-                    const {x, y} = vm.center;
-                    const radius = vm.radius[0];
-                    const ctx = chart.ctx;
-                    ctx.beginPath();
-                    ctx.arc(x, y, radius, 0, Math.PI * 2);
-                    ctx.fillStyle = 'white';
-                    ctx.fill();
-                    ctx.restore();
-                }
-            }
-
-        });
-    }, []);
-
-    const bgColors = colorListGen({
-        length: categoriesCount.length,
-        startColor: "#ff0038",
-        endColor: "#00ffff",
-        opacity: 0.5
-    });
-    const borderColor = colorListGen({
-        length: categoriesCount.length,
-        startColor: "#ff0038",
-        endColor: "#00ffff",
-        opacity: 1
-    });
-
-
-    const data = {
-        labels: categoriesCount.map((item) => {
-            return item.category + ` (${item.count})` + " " + Math.round((item.count / categoriesCount.reduce((acc, curr) => acc + curr.count, 0)) * 100) + "%";
-        }),
-        datasets: [
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        fetch(import.meta.env["VITE_API_URL"] + "/sites",
             {
-                data: categoriesCount.map((item) => item.count),
-                borderWidth: 1,
-                backgroundColor: bgColors,
-                borderColor: borderColor,
-                responsive: true,
-            },
-        ],
-    };
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                setChartData(formatData(data.data));
+            });
+    }, []);
+    
+    const labels: string[] = Object.keys(chartData)
+    const data: number[] = Object.values(chartData).map((value) => value.length);
+    
     return (
-        <div
-            className={"flex justify-center items-center h-full relative w-full"}
-            style={{height: "calc(100vh - 12rem)"}}
-        >
-            <Pie
-                data={data}
-                options={{
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: "right",
-                        },
-                        tooltip: {
-                            displayColors: false,
-                        }
-                    },
-                }}
-            />
-        </div>
+        <PieChartBase startColor={"#fa6868"} endColor={"#75f3ff"} dataset={{
+            labels: labels,
+            data: data
+        }} />
     );
 }
 

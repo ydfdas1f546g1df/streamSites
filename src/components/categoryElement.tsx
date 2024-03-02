@@ -12,11 +12,7 @@ const CategoryElement = ({ sitesData, categoryName }: { sitesData: SiteInterface
                 {sitesData.map((site: SiteInterface, index: number) => (
                     <SiteElement
                         key={index}
-                        url={site.url}
-                        icon={site.icon}
-                        languages={site.languages}
-                        name={site.name}
-                        category={site.category}
+                        site={site}
                     />
                 ))}
             </div>

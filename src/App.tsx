@@ -7,28 +7,31 @@ import AdminDashboard from "@/pages/adminDashboard.tsx";
 import Login from "@/pages/login.tsx";
 import RequestForm from "@/pages/requestForm.tsx";
 import Dashboard from "@/pages/dashboard.tsx";
+import {AuthProvider} from "@/utils/auth.tsx";
 
 
 function App() {
     return (
-        <div className="bg-darkgray-900 text-darkgray-0 font-inter accent-darkgray-0 min-h-screen">
-            <Header/>
-            <div className="pt-16"/>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Root/>}/>
-                    <Route path={"/login"} element={<Login/>}/>
-                    <Route path={"/request"} element={<RequestForm/>}/>
-                    <Route path={"/dashboard"} element={<Dashboard/>}/>
-                    <Route element={<AdminRoutes/>}>
-                        <Route path={"/admin"} element={<AdminDashboard/>}/>
-                    </Route>
-                    <Route path={"/*"} element={<Root/>}/>
-                </Routes>
-            </Router>
-            <div className="pb-16 bg-transparent"/>
-            <Footer/>
-        </div>
+        <Router>
+            <AuthProvider>
+                <div className="bg-darkgray-900 text-darkgray-0 font-inter accent-darkgray-0 min-h-screen">
+                    <Header/>
+                    <div className="pt-16"/>
+                    <Routes>
+                        <Route path="/" element={<Root/>}/>
+                        <Route path={"/login"} element={<Login/>}/>
+                        <Route path={"/request"} element={<RequestForm/>}/>
+                        <Route path={"/dashboard"} element={<Dashboard/>}/>
+                        <Route element={<AdminRoutes/>}>
+                            <Route path={"/admin"} element={<AdminDashboard/>}/>
+                        </Route>
+                        <Route path={"/*"} element={<Root/>}/>
+                    </Routes>
+                    <div className="pb-16 bg-transparent"/>
+                    <Footer/>
+                </div>
+            </AuthProvider>
+        </Router>
     );
 }
 

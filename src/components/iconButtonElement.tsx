@@ -1,13 +1,12 @@
 import Element = React.JSX.Element;
 import ToolTipElement from "@/components/toolTipElement.tsx";
+import {Link} from "react-router-dom";
 
 const IconButtonElement = ({url, svgElement, toolTip, newTab}: { url: string, svgElement: Element, toolTip: string, newTab: boolean }) => {
-    const location = window.location.href;
-    const githubPages = location.includes("github.io/streamSites")
     
     return (
-        <a
-            href={githubPages ? `/streamSites${url}` : url}
+        <Link
+            to={url}
             target={newTab ? "_blank" : "_self"}
             className="mr-2 flex flex-col items-center justify-between"
         >
@@ -22,7 +21,7 @@ const IconButtonElement = ({url, svgElement, toolTip, newTab}: { url: string, sv
                     />
                 </button>
             </div>
-        </a>
+        </Link>
     )
 }
 

@@ -39,18 +39,18 @@ const db = new sqlite3.Database(path.join(process.cwd(), "data", 'db'), (err) =>
 
 app.post('/admin/login', (req, res) => {
     const {username, password} = req.body;
-    db.get(`SELECT * FROM users WHERE username = ?`, [username], (err, row) => {
+    db.get(`SELECT * FROM tbl_users WHERE username = ?`, [username], (err, row) => {
         if (err) {
             res.json({
                 message: "error"
             });
         } else {
             if (row) {
-                if (becrypt.compare(password, row.password)) {
+                if (becrypt.compareSync(password, row.password_hash)) {
                     db.serialize(() => {
                         db.run(`DELETE FROM tbl_sessions WHERE user_fk = ?`, [row.pk_users]);
-                        const token = Math.random().toString(36).substring(2);
-                        db.run(`INSERT INTO tbl_sessions (user_fk, token, valid_until) VALUES (?, ?, ?)`, [row.pk_users, Date.now() + 3600000, token]);
+                        const token = Math.random().toString(36).substring(2, 34);
+                        db.run(`INSERT INTO tbl_sessions (user_fk, token, valid_until) VALUES (?, ?, ?)`, [row.pk_users, token, Date.now() + 3600000,]);
                         res.json({
                             message: "success",
                             data: row,
@@ -75,9 +75,7 @@ app.post('/admin/login', (req, res) => {
 
 app.post('/admin/session', (req, res) => {
     const token = req.body.token;
-    db.get(`SELECT * FROM users 
-    JOIN tbl_sessions ON tbl_sessions.user_fk = tbl_users.pk_users
-    WHERE token = ? and valid_until > ? and username = ?`, [token, Date.now(), req.body.username], (err, row) => {
+    db.get(`SELECT * FROM tbl_sessions WHERE token = ? and valid_until > ?`, [token, Date.now()], (err, row) => {
         if (err) {
             res.json({
                 message: "error"

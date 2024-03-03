@@ -20,9 +20,9 @@ const Root = () => {
     const apiurl = useMemo(() => import.meta.env["VITE_API_URL"], []);
 
     useEffect(() => {
-        const fetchData = async (url: string) => {
+        const fetchData = async (url: string, methode: string) => {
             const response = await fetch(url, {
-                method: "GET",
+                method: methode,
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -32,9 +32,9 @@ const Root = () => {
         };
 
         const promises = [
-            fetchData(apiurl + "/languages"),
-            fetchData(apiurl + "/sites"),
-            fetchData(apiurl + "/categories")
+            fetchData(apiurl + "/languages", "GET"),
+            fetchData(apiurl + "/sites", "POST"),
+            fetchData(apiurl + "/categories", "GET")
         ];
 
         Promise.all(promises)
@@ -85,7 +85,7 @@ const Root = () => {
         <div className="flex gap-4 justify-center overflow-hidden h-full">
             <AsideElement categories={categories} sites={sortedCategoriesedData}/>
             <div className="flex-1 overflow-hidden min-h-screen" style={{
-                maxHeight: "calc(100vh - 8rem)",
+                maxminHeight: "calc(100vh - 8rem)",
                 overflowY: "auto",
                 scrollbarWidth: "none",
                 msOverflowStyle: "none"

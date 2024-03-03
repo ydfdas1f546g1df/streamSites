@@ -2,8 +2,6 @@ import CategoryCountChart from "@/components/charts/categoryCountChart.tsx";
 import SitesWithLanguageCountChart from "@/components/charts/sitesWithLanguageCountChart.tsx";
 
 const Dashboard = () => {
-
-
     return (
         <div
             className={"grid p-4 gap-4 lg:grid-cols-3 grid-rows-3 lg:grid-rows-2 h-full overflow-hidden md:grid-cols-2 md:grid-rows-2 sm:grid-cols-1 sm:grid-rows-2"}

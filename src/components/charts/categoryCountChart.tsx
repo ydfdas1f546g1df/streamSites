@@ -12,7 +12,7 @@ const CategoryCountChart = () => {
         // @ts-expect-error
         fetch(import.meta.env["VITE_API_URL"] + "/sites",
             {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },

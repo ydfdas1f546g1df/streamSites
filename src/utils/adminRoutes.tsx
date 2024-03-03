@@ -37,7 +37,7 @@ const AdminRoutes = () => {
                 //     make a rotating spinner that looks like a rotating cube
                     <div
                         className={"flex justify-center items-center"}
-                        style={{height: "calc(100vh - 12rem)"}}
+                        style={{minHeight: "calc(100vh - 12rem)"}}
                     >
                         <div
                             className={"animate-spin w-12 h-12 border-t-4 border-b-4 border-darkgray-700 rounded-full"}

@@ -19,7 +19,7 @@ const Login = () => {
     return (
         <div
             className={"flex justify-center items-center"}
-            style={{height: "calc(100vh - 12rem)"}}
+            style={{minHeight: "calc(100vh - 12rem)"}}
         >
             <form
                 onSubmit={handleLogin}

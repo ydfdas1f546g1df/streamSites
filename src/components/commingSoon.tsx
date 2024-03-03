@@ -2,7 +2,7 @@ const CommingSoon = () => {
     return (
         <div
             className={"flex justify-center items-center"}
-            style={{height: "calc(100vh - 12rem)"}}
+            style={{minHeight: "calc(100vh - 12rem)"}}
         >
             <h1
                 className={"text-4xl font-bold"}

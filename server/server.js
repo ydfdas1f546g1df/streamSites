@@ -98,8 +98,9 @@ app.post('/admin/session', (req, res) => {
 });
 
 
-app.get('/sites', (req, res) => {
-    const allSQL = `
+app.post('/sites', (req, res) => {
+    const {start, end} = req.body
+    let allSQL = `
 SELECT
     tbl_sites.pk_sites,
     tbl_sites.name,
@@ -120,22 +121,35 @@ GROUP BY
     tbl_sites.url,
     tbl_sites.icon,
     tbl_sites.category_fk
+ORDER BY
+    tbl_sites.pk_sites
 `;
-
+if (start !== undefined && end !== undefined) {
+    allSQL += ` LIMIT ${start}, ${end}`;
+}
+    
+    
+    
+    // console.log(allSQL)
     db.serialize(() => {
         db.all(allSQL, (err, rows) => {
             if (err) {
                 console.error(err.message);
                 return;
             }
-
-            // Process the rows to convert the languages string into an array
             rows.forEach(row => {
                 row.languages = row.languages.split(',');
             });
-            res.json({
-                message: "success",
-                data: rows
+            db.get(`SELECT COUNT(*) as count FROM tbl_sites`, (err, row) => {
+                if (err) {
+                    console.error(err.message);
+                    return;
+                }
+                res.json({
+                    message: "success",
+                    data: rows,
+                    count: row.count
+                });
             });
         });
     });

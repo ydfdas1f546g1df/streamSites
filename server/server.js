@@ -5,7 +5,7 @@ const path = require('path');
 const initDB = require('./initDB');
 const LoadDB = require('./loadDB');
 const exportDB = require('./exportDB');
-const {set} = require("express/lib/application");
+const becrypt = require('bcryptjs');
 
 
 initDB(() => {
@@ -39,7 +39,45 @@ const db = new sqlite3.Database(path.join(process.cwd(), "data", 'db'), (err) =>
 
 app.post('/admin/login', (req, res) => {
     const {username, password} = req.body;
-    db.get(`SELECT * FROM users WHERE username = ? AND password_hash = ?`, [username, password], (err, row) => {
+    db.get(`SELECT * FROM users WHERE username = ?`, [username], (err, row) => {
+        if (err) {
+            res.json({
+                message: "error"
+            });
+        } else {
+            if (row) {
+                if (becrypt.compare(password, row.password)) {
+                    db.serialize(() => {
+                        db.run(`DELETE FROM tbl_sessions WHERE user_fk = ?`, [row.pk_users]);
+                        const token = Math.random().toString(36).substring(2);
+                        db.run(`INSERT INTO tbl_sessions (user_fk, token, valid_until) VALUES (?, ?, ?)`, [row.pk_users, Date.now() + 3600000, token]);
+                        res.json({
+                            message: "success",
+                            data: row,
+                            token: token,
+                            valid: true
+                        });
+                    });
+                } else {
+                    res.json({
+                        message: "failure",
+                        valid: false
+                    });
+                }
+            } else {
+                res.json({
+                    message: "failure",
+                });
+            }
+        }
+    });
+});
+
+app.post('/admin/session', (req, res) => {
+    const token = req.body.token;
+    db.get(`SELECT * FROM users 
+    JOIN tbl_sessions ON tbl_sessions.user_fk = tbl_users.pk_users
+    WHERE token = ? and valid_until > ? and username = ?`, [token, Date.now(), req.body.username], (err, row) => {
         if (err) {
             res.json({
                 message: "error"
@@ -54,6 +92,7 @@ app.post('/admin/login', (req, res) => {
             } else {
                 res.json({
                     message: "failure",
+                    valid: false
                 });
             }
         }
@@ -128,6 +167,22 @@ app.get('/languages', (req, res) => {
             message: "success",
             data: rows
         });
+    });
+});
+
+app.post('/visits', (req, res) => {
+    const pk_sites = req.body.pk_sites;
+    const date_visited = Date.now();
+    db.run(`INSERT INTO tbl_sites_visited (site_fk, date_visited) VALUES (?, ?)`, [pk_sites, date_visited], (err) => {
+        if (err) {
+            res.json({
+                message: "error"
+            });
+        } else {
+            res.json({
+                message: "success"
+            });
+        }
     });
 });
 

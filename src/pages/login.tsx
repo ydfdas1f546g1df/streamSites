@@ -1,12 +1,13 @@
 import React, {useState} from "react";
-import bcrypt from "bcryptjs-react";
 
 const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
 
-    const api_base = process.env.API_URL
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    const api_base = import.meta.env.VITE_API_URL
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -18,7 +19,7 @@ const Login = () => {
             },
             body: JSON.stringify({
                 username: username,
-                password: bcrypt.hashSync(password, 10),
+                password: password,
             }),
         });
         const data = await response.json();

@@ -24,7 +24,7 @@ jobs:
       with:
         python-version: "3.10"
     - name: Remove Readme.md
-      run: rm -rf README.md
+      run: rm -rf SITES.md
     
     - name: Install dependencies
       run: |
@@ -33,10 +33,10 @@ jobs:
     - name: Run python
       run: |
         python builder.py
-    - name: Commit and Push README.md
+    - name: Commit and Push SITES.md
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add README.md
-        git commit -m "Build README.md" || exit 0  # This command exits with 0 if there's nothing to commit
+        git add SITES.md
+        git commit -m "Build SITES.md" || exit 0  # This command exits with 0 if there's nothing to commit
         git push

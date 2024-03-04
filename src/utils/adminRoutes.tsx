@@ -1,14 +1,13 @@
 import {Navigate, Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {useAuth} from "@/utils/auth.tsx";
 
 const AdminRoutes = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isAuthenticating, setIsAuthenticating] = useState(true);
-    const userItem = sessionStorage.getItem("user");
-    const {
-        username,
-        token
-    } = userItem ? JSON.parse(userItem) : {username: null, token: null};
+    const auth = useAuth()
+    const username = auth.user?.username;
+    const token = auth.user?.token;
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
@@ -23,7 +22,6 @@ const AdminRoutes = () => {
             }
         ).then((data) => {
             if (data.valid) {
-                sessionStorage.setItem("user", JSON.stringify({username: username, token: token}));
                 setIsAuthenticated(true);
             }
             setIsAuthenticating(false);

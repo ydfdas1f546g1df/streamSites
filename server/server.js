@@ -17,9 +17,11 @@ const becrypt = require('bcryptjs');
 
 
 initDB(() => {
+    console.log('[ STATUS ] - Database initialized.')
     LoadDB(() => {
+        console.log('[ STATUS ] - Database loaded.')
         exportDB(() => {
-            console.log('Database loaded and exported.');
+            console.log('[ STATUS ] - Database exported.')
         });
     });
 });

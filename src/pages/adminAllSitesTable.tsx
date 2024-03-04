@@ -37,6 +37,8 @@ const AdminAllSitesTable = () => {
                 style={{minHeight: "calc(100vh - 12rem)"}}
             >
                 <TableElement
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-expect-error
                     data={data}
                     position={position}
                     setPosition={setPosition}
@@ -45,10 +47,12 @@ const AdminAllSitesTable = () => {
                     setSelectedRow={setSelectedRow}
                 />
                 <AdminEditSiteMenu
-                    dataset={data.filter((site: { pk_sites: number }) => site.pk_sites === selectedRow)[0]}
+                    data={data.filter((site: { pk_sites: number }) => site.pk_sites === selectedRow)[0]}
                     setSelectedRow={setSelectedRow}
                     setData={setData}
                     allData={data}
+                    setMaxRows={setMaxRows}
+                    maxRows={maxRows}
                 />
             </div>
         </>

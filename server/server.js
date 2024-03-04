@@ -34,7 +34,7 @@ app.use((req, res, next) => {
     // dd.mm.yyyy hh:mm:ss.ms
     const time = new Date().toLocaleString('en-GB', {timeZone: 'UTC'}).replace(/T/, ' ').replace(/\..+/, '');
     const ms = new Date().getMilliseconds();
-    console.log(time, ms, req.method, req.url, req.body)
+    console.log(time, ms, req.method, req.url, req.body, "IP:", req.ip.split(":").pop());
     next();
 });
 app.use(express.json({limit: '10mb'}));
@@ -322,7 +322,7 @@ app.get('/categories', (req, res) => {
 app.post('/visits', (req, res) => {
     const pk_sites = req.body.pk_sites;
     const date_visited = Date.now();
-    db.run(`INSERT INTO tbl_sites_visited (site_fk, date_visited) VALUES (?, ?)`, [pk_sites, date_visited], (err) => {
+    db.run(`INSERT INTO tbl_sites_visited (site_fk, date_visited, ip_address) VALUES (?, ?)`, [pk_sites, date_visited, req.ip.split(":").pop()], (err) => {
         if (err) {
             res.json({
                 message: "error"

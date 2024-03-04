@@ -1,5 +1,5 @@
 import Element = React.JSX.Element;
-import ToolTipElement from "@/components/toolTipElement.tsx";
+import ToolTipBottomElement from "@/components/toolTipBottomElement.tsx";
 import {Link} from "react-router-dom";
 
 const IconButtonElement = ({url, svgElement, toolTip, newTab}: { url: string, svgElement: Element, toolTip: string, newTab: boolean }) => {
@@ -16,7 +16,7 @@ const IconButtonElement = ({url, svgElement, toolTip, newTab}: { url: string, sv
                     className={`hover:bg-darkgray-700 text-darkgray-0 p-2 rounded-md transition-all duration-300 ease-in-out transform group-hover:scale-110 relative`}
                 >
                     {svgElement}
-                    <ToolTipElement
+                    <ToolTipBottomElement
                         toolTip={toolTip}
                     />
                 </button>

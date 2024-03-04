@@ -1,6 +1,6 @@
 import IconButtonElement from "@/components/iconButtonElement.tsx";
 import {useAuth} from "@/utils/auth.tsx";
-import ToolTipElement from "@/components/toolTipElement.tsx";
+import ToolTipBottomElement from "@/components/toolTipBottomElement.tsx";
 import logoutSVG from "@/components/svg/logoutSVG.tsx";
 import adminSVG from "@/components/svg/adminSVG.tsx";
 import dashboardSVG from "@/components/svg/dashboardSVG.tsx";
@@ -69,7 +69,7 @@ const Header = () => {
                                         className={`hover:bg-darkgray-700 text-darkgray-0 p-2 rounded-md transition-all duration-300 ease-in-out transform group-hover:scale-110 relative`}
                                     >
                                         {logoutSVG(1)}
-                                        <ToolTipElement
+                                        <ToolTipBottomElement
                                             toolTip={"Logout"}
                                         />
                                     </button>

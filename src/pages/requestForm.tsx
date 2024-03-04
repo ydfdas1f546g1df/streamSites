@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from "react";
 
 
+
 const RequestForm = () => {
     const [allCategories, setAllCategories] = React.useState<{ pk_categories: number, name: string }[]>([]);
     const imageRef = useRef<HTMLImageElement>(null);
@@ -27,6 +28,11 @@ const RequestForm = () => {
         const languages = languagesRef.current?.value.split(",").map((lang) => lang.trim());
         const category = allCategories[categoryRef.current?.selectedIndex as number].name;
         console.log(name, url, icon, languages, category);
+        
+        if (!name || !url || !icon || !languages || !category) {
+            alert("Please Fill All Fields");
+            return;
+        }
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
@@ -94,7 +100,9 @@ const RequestForm = () => {
                 <div
                     className={"grid grid-cols-3 grid-rows-2 gap-4 p-4"}
                 >
-                    <div>
+                    <div
+                    className={"group"}
+                    >
                         <label
                             htmlFor={"name"}
                             className={"block"}
@@ -102,6 +110,7 @@ const RequestForm = () => {
                             Site Name
                         </label>
                         <input
+                            placeholder={"example.com"}
                             required={true}
                             ref={nameRef}
                             type={"text"}
@@ -117,6 +126,7 @@ const RequestForm = () => {
                             Site URL
                         </label>
                         <input
+                            placeholder={"https://example.com"}
                             ref={urlRef}
                             required={true}
                             type={"text"}
@@ -133,6 +143,7 @@ const RequestForm = () => {
                         >
                             Site Icon
                             <input
+                                placeholder={"https://example.com/favicon.ico"}
                                 ref={iconRef}
                                 required={true}
                                 type={"text"}
@@ -186,6 +197,7 @@ const RequestForm = () => {
                             Site Languages
                         </label>
                         <input
+                            placeholder={"us, de, jp ..."}
                             ref={languagesRef}
                             required={true}
                             type={"text"}

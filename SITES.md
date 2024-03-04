@@ -116,16 +116,6 @@
 
 <br/>
 
-<a href='https://www.youtube.com/watch?v=FR91CB5SBWU&list=RDy4wcwGnj7E8&index=4' style='display: flex; align-items: center; text-decoration: none;'>
-<img src='https://thepiratebay.org/favicon.ico' align='left' height='16' width='16'>
-&nbsp;-&nbsp;
-<span>sdsdfsdfsdfsdf</span>
-&nbsp;-&nbsp;
- <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/[object Object].png'/>
-</a>
-
-<br/>
-
 ## Series
 <a href='https://bs.to' style='display: flex; align-items: center; text-decoration: none;'>
 <img src='https://bs.to/favicon.ico' align='left' height='16' width='16'>
@@ -176,16 +166,6 @@
 <span>YTS</span>
 &nbsp;-&nbsp;
  <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png'/>
-</a>
-
-<br/>
-
-<a href='https://www.youtube.com/watch?v=FR91CB5SBWU&list=RDy4wcwGnj7E8&index=4' style='display: flex; align-items: center; text-decoration: none;'>
-<img src='https://hdfilme.to/templates/hdfilme/images/logo-hdfilme.svg' align='left' height='16' width='16'>
-&nbsp;-&nbsp;
-<span>qwdqwdqwd</span>
-&nbsp;-&nbsp;
- <img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/[object Object].png'/>
 </a>
 
 <br/>

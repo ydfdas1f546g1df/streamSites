@@ -158,6 +158,12 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
     }
 
     const handleDelete = () => {
+        if (!confirm("Are you sure you want to delete this site?")) return
+        if (dataset.pk_sites === 0) {
+            setSelectedRow(null)
+            setIsEditing(false)
+            return
+        }
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         fetch(`${import.meta.env["VITE_API_URL"]}/sites/delete`,
@@ -228,8 +234,10 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
                         isEditing ?
                             <button
                                 onClick={() => {
-                                    setIsEditing(false)
-                                    setSelectedRow(null)
+                                    if (confirm("Are you sure you want to cancel?\nChanges will not be saved")) {
+                                        setIsEditing(false)
+                                        setDataset(data)
+                                    }
                                 }}
                                 className={"px-2 py-1 bg-orange-600 hover:bg-orange-500 transition-all duration-300 ease-in-out cursor-pointer rounded font-semibold"}
                             >

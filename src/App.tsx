@@ -9,6 +9,7 @@ import RequestForm from "@/pages/requestForm.tsx";
 import Dashboard from "@/pages/dashboard.tsx";
 import {AuthProvider} from "@/utils/auth.tsx";
 import AdminAllSitesTable from "@/pages/adminAllSitesTable.tsx";
+import AdminSiteRequests from "@/pages/adminSiteRequests.tsx";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                         <Route element={<AdminRoutes/>}>
                             <Route path={"/admin"} element={<AdminDashboard/>}/>
                             <Route path={"/admin/sites"} element={<AdminAllSitesTable/>}/>
+                            <Route path={"/admin/requests"} element={<AdminSiteRequests/>}/>
                         </Route>
                         <Route path={"/*"} element={<Root/>}/>
                     </Routes>

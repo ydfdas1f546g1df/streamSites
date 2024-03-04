@@ -1,6 +1,8 @@
 import dashboardSVG from "@/components/svg/dashboardSVG.tsx";
 import {Link} from "react-router-dom";
 import tableSVG from "@/components/svg/tableSVG.tsx";
+import requestSVG from "@/components/svg/requestSVG.tsx";
+import ListSVG from "@/components/svg/listSVG.tsx";
 
 
 const AdminDashboard = () => {
@@ -27,11 +29,10 @@ const AdminDashboard = () => {
                 <div
                     className={"grid grid-cols-2 gap-2 grid-rows-2 items-center border-darkgray-700 border-[1px] rounded-md p-2 aspect-square"}
                 >
-                    {linkElement("/dashboard", dashboardSVG(6), "Dashboard")}
-                    {linkElement("/admin/sites", tableSVG(6), "Edit Sites")}
-                    {linkElement("/", dashboardSVG(6), "Users")}
-                    {linkElement("/admin/requests", dashboardSVG(6), "Site Requests")}
-
+                    {linkElement("/dashboard", dashboardSVG(4), "Dashboard")}
+                    {linkElement("/admin/sites", tableSVG(4), "Edit Sites")}
+                    {linkElement("/admin/attributes", ListSVG(4), "Edit Attributes")}
+                    {linkElement("/admin/requests", requestSVG(4), "Site Requests")}
                 </div>
             </div>
         </>

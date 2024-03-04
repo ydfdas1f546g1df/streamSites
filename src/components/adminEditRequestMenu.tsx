@@ -1,10 +1,9 @@
 import {useEffect, useRef, useState} from "react";
-import siteInterface from "@/interfaces/siteInterface.ts";
-import {useAuth} from "@/utils/auth.tsx";
 import SiteInterface from "@/interfaces/siteInterface.ts";
+import {useAuth} from "@/utils/auth.tsx";
 
 const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, maxRows}: {
-    data: siteInterface,
+    data: SiteInterface,
     setSelectedRow: (row: number | null) => void
     setData: (data: (SiteInterface | {
         languages: string[] | undefined;
@@ -14,19 +13,19 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
         category: string;
         url: string
     })[]) => void
-    allData: siteInterface[]
+    allData: SiteInterface[]
     setMaxRows: (maxRows: number) => void
     maxRows: number
 }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [categories, setCategories] = useState<{pk_categories: number, name:string}[]>([]);
+    const [categories, setCategories] = useState<{ pk_categories: number, name: string }[]>([]);
     const imageRef = useRef(new Image())
     const iconRef = useRef<HTMLInputElement>(null)
     const languagesRef = useRef<HTMLInputElement>(null)
     const categoryRef = useRef<HTMLSelectElement>(null)
     const nameRef = useRef<HTMLInputElement>(null)
     const urlRef = useRef<HTMLInputElement>(null)
-    const [dataset, setDataset] = useState<siteInterface | undefined>(data);
+    const [dataset, setDataset] = useState<SiteInterface | undefined>(data);
     const auth = useAuth();
 
 
@@ -64,29 +63,10 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
             });
     }, []);
 
-    const handleNewSite = () => {
-        if (iconRef.current) iconRef.current.value = ""
-        if (languagesRef.current) languagesRef.current.value = ""
-        if (categoryRef.current) categoryRef.current.selectedIndex = 0
-        if (nameRef.current) nameRef.current.value = ""
-        if (urlRef.current) urlRef.current.value = ""
-        const newDataset = {
-            pk_sites: 0,
-            name: "",
-            url: "",
-            icon: "",
-            category: "",
-            languages: []
-        }
-        setDataset(newDataset)
-        setIsEditing(true)
-    }
-    
     if (maxRows === 0) {
         return
     }
     
-
     if (dataset === undefined) {
         return (
             <div
@@ -95,17 +75,12 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
                 <p
                     className={"text-2xl font-semibold"}
                 >
-                    No site selected
+                    No request selected
                 </p>
-                <button onClick={handleNewSite}
-                        className={"px-2 py-1 bg-green-700 hover:bg-green-600 transition-all duration-300 ease-in-out cursor-pointer rounded font-semibold mx-2"}>
-                    New Site
-                </button>
             </div>
         )
     }
-    const handleSave = () => {
-        
+    const handleApprove = () => {
         const formData = {
             pk_sites: 0,
             name: nameRef.current?.value,
@@ -116,77 +91,43 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
         }
         if (formData.name === "" || formData.url === "" || formData.icon === "" || formData.category === "") return
         if (formData.languages?.map((language: string) => language.length !== 2).includes(true)) return
-        if (dataset.pk_sites === 0) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            fetch(import.meta.env["VITE_API_URL"] + "/sites/add",
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({data: formData, token: auth.user?.token})
-                })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    if (data.message === "success") {
-                        setSelectedRow(null)
-                        setIsEditing(false)
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-expect-error
-                        setData([...allData, formData])
-                        setMaxRows(maxRows + 1)
-                    }
-                    console.log(data)
-                });
-        } else {
-            formData.pk_sites = dataset.pk_sites
-            const index = allData.findIndex((site: siteInterface) => site.pk_sites === dataset.pk_sites)
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            allData[index] = formData
-            setData(allData)
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            fetch(import.meta.env["VITE_API_URL"] + "/sites/edit",
-                {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({data: formData, token: auth.user?.token})
-                })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    if (data.message === "success") {
-                        setSelectedRow(null)
-                        setIsEditing(false)
-                    }
-                    console.log(data)
-                });
-        }
-    }
-
-    const handleDelete = () => {
-        if (!confirm("Are you sure you want to delete this site?")) return
-        if (dataset.pk_sites === 0) {
-            setSelectedRow(null)
-            setIsEditing(false)
-            return
-        }
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(`${import.meta.env["VITE_API_URL"]}/sites/delete`,
+        fetch(`${import.meta.env["VITE_API_URL"]}/sites/add`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({data: formData, token: auth.user?.token})
+            })
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data)
+                if (data.message === "success") {
+                    removeRequest(dataset.pk_sites)
+                    setData(allData.filter((site: { pk_sites: number }) => site.pk_sites !== dataset.pk_sites) as SiteInterface[] | [])
+                }
+            });
+    }
+
+    const handleDecline = () => {
+        if (!confirm("Are you sure you want to delete this request?")) return
+        removeRequest(dataset.pk_sites)
+    }
+
+    const removeRequest = (pk_sites: number) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        fetch(`${import.meta.env["VITE_API_URL"]}/request/remove`,
             {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({pk_sites: dataset.pk_sites, token: auth.user?.token})
+                body: JSON.stringify({pk_site_requests: pk_sites, token: auth.user?.token})
             })
             .then((response) => {
                 return response.json();
@@ -194,7 +135,7 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
             .then((data) => {
                 console.log(data)
                 setSelectedRow(null)
-                setData(allData.filter((site: siteInterface) => site.pk_sites !== dataset.pk_sites))
+                setIsEditing(false)
                 setMaxRows(maxRows - 1)
             });
     }
@@ -233,37 +174,20 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
                                 Edit
                             </button> : null
                     }
-                    {
-                        isEditing ?
-                            <button
-                                onClick={() => {
-                                    if (isEditing) handleSave()
-                                }}
-                                className={"px-2 py-1 bg-green-700 hover:bg-green-600 transition-all duration-300 ease-in-out cursor-pointer rounded font-semibold"}
-                            >
-                                Save
-                            </button> : null
-                    }
-                    {
-                        isEditing ?
-                            <button
-                                onClick={() => {
-                                    if (confirm("Are you sure you want to cancel?\nChanges will not be saved")) {
-                                        setIsEditing(false)
-                                        setDataset(data)
-                                    }
-                                }}
-                                className={"px-2 py-1 bg-orange-600 hover:bg-orange-500 transition-all duration-300 ease-in-out cursor-pointer rounded font-semibold"}
-                            >
-                                Cancel
-                            </button> : null
-                    }
+                    <button
+                        onClick={() => {
+                            handleApprove()
+                        }}
+                        className={"px-2 py-1 bg-green-700 hover:bg-green-600 transition-all duration-300 ease-in-out cursor-pointer rounded font-semibold"}
+                    >
+                        Approve
+                    </button>
                     {
                         <button
-                            onClick={handleDelete}
+                            onClick={handleDecline}
                             className={"px-2 py-1 bg-red-700 hover:bg-red-600 transition-all duration-300 ease-in-out cursor-pointer rounded font-semibold"}
                         >
-                            Delete
+                            Decline
                         </button>
                     }
                 </div>

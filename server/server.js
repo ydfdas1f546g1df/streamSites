@@ -122,10 +122,55 @@ app.post('/admin/session', (req, res) => {
     });
 });
 
+app.post('/requests', (req, res) => {
+    const {start, end, search, token} = req.body
+    let allSQL = `
+SELECT
+    tbl_site_requests.pk_site_requests as pk_sites,
+    tbl_site_requests.name,
+    tbl_site_requests.url,
+    tbl_site_requests.icon,
+    tbl_categories.name as category,
+    tbl_site_requests.languages
+FROM
+    tbl_site_requests
+JOIN
+    tbl_categories ON tbl_site_requests.category_fk = tbl_categories.pk_categories
+${search !== undefined ? `WHERE (tbl_site_requests.name LIKE '%${search}%' OR tbl_site_requests.url LIKE '%${search}%' OR tbl_site_requests.icon LIKE '%${search}%')` : ''}
+ORDER BY
+    tbl_site_requests.pk_site_requests
+${start !== undefined && end !== undefined ? `LIMIT ${start}, ${end}` : ''}
+`;
+    authenticate(token, () => {
+        db.serialize(() => {
+            db.all(allSQL, (err, rows) => {
+                if (err) {
+                    console.error(err.message);
+                    return;
+                }
+                rows.forEach(row => {
+                    row.languages = row.languages.split(',').map(lang => lang.trim());
+                });
+                db.get(`SELECT COUNT(*) as count FROM tbl_site_requests`, (err, row) => {
+                    if (err) {
+                        console.error(err.message);
+                        return;
+                    }
+                    res.json({
+                        message: "success",
+                        data: rows,
+                        count: row.count
+                    });
+                });
+            });
+        });
+    });
+});
+
 
 app.post('/sites', (req, res) => {
     const {start, end, search} = req.body
-let allSQL = `
+    let allSQL = `
 SELECT
     tbl_sites.pk_sites,
     tbl_sites.name,
@@ -172,7 +217,6 @@ ${start !== undefined && end !== undefined ? `LIMIT ${start}, ${end}` : ''}
 app.delete('/sites/delete', (req, res) => {
     const pk_sites = req.body.pk_sites;
     const token = req.body.token;
-    console.log(pk_sites, token)
     authenticate(token, () => {
         db.run(`DELETE FROM tbl_sites WHERE pk_sites = ?`, [pk_sites], (err) => {
             if (err) {
@@ -193,7 +237,7 @@ app.put('/sites/edit', (req, res) => {
     const token = req.body.token;
     authenticate(token, () => {
 
-        db.run(`UPDATE tbl_sites SET name = ?, url = ?, icon = ?, category_fk = (SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), languages = ? WHERE pk_sites = ?`, [name, url, icon, category,languages.join(","), pk_sites], (err) => {
+        db.run(`UPDATE tbl_sites SET name = ?, url = ?, icon = ?, category_fk = (SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), languages = ? WHERE pk_sites = ?`, [name, url, icon, category, languages.join(","), pk_sites], (err) => {
             if (err) {
                 res.json({
                     message: "error"
@@ -213,6 +257,40 @@ app.post('/sites/add', (req, res) => {
     const token = req.body.token;
     authenticate(token, () => {
         db.run(`INSERT INTO tbl_sites (name, url, icon, category_fk, languages) VALUES (?, ?, ?,(SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), ?)`, [name, url, icon, category, languages.join(",")], function (err) {
+            if (err) {
+                res.json({
+                    message: "error"
+                });
+            } else {
+                res.json({
+                    message: "success"
+                });
+            }
+        });
+    });
+});
+
+app.post('/sites/request', (req, res) => {
+    const {name, url, icon, category, languages} = req.body.data;
+    db.run(`INSERT INTO tbl_site_requests (name, url, icon, category_fk, languages) VALUES (?, ?, ?, (SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), ?)`, [name, url, icon, category, languages.join(",")], function (err) {
+        if (err) {
+            res.json({
+                message: "error"
+            });
+        } else {
+            res.json({
+                message: "success"
+            });
+        }
+    });
+});
+
+app.delete('/request/remove', (req, res) => {
+    const pk_site_requests = req.body.pk_site_requests;
+    const token = req.body.token;
+    console.log()
+    authenticate(token, () => {
+        db.run(`DELETE FROM tbl_site_requests WHERE pk_site_requests = ?`, [pk_site_requests], (err) => {
             if (err) {
                 res.json({
                     message: "error"

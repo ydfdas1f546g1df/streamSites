@@ -1,5 +1,6 @@
 import {useState} from "react";
 import SiteInterface from "@/interfaces/siteInterface.ts";
+import {max} from "d3";
 
 const TableElement = ({
                           data, position, setPosition, maxRows, steps, setSelectedRow
@@ -9,7 +10,7 @@ const TableElement = ({
     setPosition: (position: number) => void,
     maxRows: number,
     steps: number,
-    setSelectedRow: (row: number) => void
+    setSelectedRow: (row: number) => void,
 }) => {
     const [sortField, setSortField] = useState<string | null>(null);
     const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
@@ -29,10 +30,19 @@ const TableElement = ({
         if (a[sortField] > b[sortField]) return sortDirection === 'asc' ? 1 : -1;
         return 0;
     });
+    
+    if (maxRows === 0) {
+        return (
+            <div className="flex justify-center items-center m-auto">
+                <h1 className="text-2xl text-darkgray-0 font-semibold">No results found</h1>
+            </div>
+        );
+    }
+    
 
     if (sortedData.length === 0) {
         return (
-            <div className="flex justify-center items-center" style={{minHeight: "calc(100vh - 12rem)"}}>
+            <div className="flex justify-center items-center m-auto">
                 <div className="animate-spin w-12 h-12 border-t-4 border-b-4 border-darkgray-700 rounded-full"/>
             </div>
         );

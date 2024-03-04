@@ -41,7 +41,7 @@ function InitDB(callback) {
         db.run(`CREATE TABLE IF NOT EXISTS tbl_categories (pk_categories INTEGER PRIMARY KEY, name TEXT)`);
         db.run(`CREATE TABLE IF NOT EXISTS tbl_sessions (pk_sessions INTEGER PRIMARY KEY, user_fk INTEGER, token TEXT, valid_until INTEGER, FOREIGN KEY (user_fk) REFERENCES tbl_users(pk_users))`);
         db.run(`CREATE TABLE IF NOT EXISTS tbl_sites_visited (pk_sites_visited INTEGER PRIMARY KEY, site_fk INTEGER, date_visited INTEGER, FOREIGN KEY (site_fk) REFERENCES tbl_sites(pk_sites))`);
-
+        db.run(`CREATE TABLE IF NOT EXISTS tbl_site_requests (pk_site_requests INTEGER PRIMARY KEY, name TEXT, url TEXT, icon TEXT, category_fk INTEGER, languages TEXT, FOREIGN KEY (category_fk) REFERENCES tbl_categories(pk_categories))`);
     });
     // check if the admin user is already in the database
     db.get(`SELECT * FROM tbl_users WHERE username = ?`, [adminUsername], (err, row) => {

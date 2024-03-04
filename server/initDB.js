@@ -1,11 +1,16 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const sqlite3 = require("sqlite3");
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const bcrypt = require('bcrypt');
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const dotenv = require('dotenv');
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 const path = require('path');
 
 
 function InitDB(callback) {
     dotenv.config();
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
     const db = new sqlite3.Database(path.join(process.cwd(), "data", 'db'), (err) => {
         if (err) {
             console.error(err.message);
@@ -14,7 +19,9 @@ function InitDB(callback) {
     });
 
     db.serialize(() => {
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
         const adminPassword = process.env.ADMIN_PW;
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
         const adminUsername = process.env.ADMIN_USER;
 
         if (!adminPassword || !adminUsername) {
@@ -44,5 +51,5 @@ function InitDB(callback) {
         callback();
     });
 }
-
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
 module.exports = InitDB;

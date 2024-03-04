@@ -27,17 +27,10 @@ function InitDB(callback) {
 
         // Create necessary database tables with foreign key constraints
         db.run(`CREATE TABLE IF NOT EXISTS tbl_users (pk_users INTEGER PRIMARY KEY, username TEXT, password_hash TEXT)`);
-        db.run(`CREATE TABLE IF NOT EXISTS tbl_sites (pk_sites INTEGER PRIMARY KEY, name TEXT, url TEXT, icon TEXT, category_fk INTEGER, FOREIGN KEY (category_fk) REFERENCES tbl_categories(pk_categories))`);
-        db.run(`CREATE TABLE IF NOT EXISTS tbl_languages (pk_languages INTEGER PRIMARY KEY, name TEXT)`);
+        db.run(`CREATE TABLE IF NOT EXISTS tbl_sites (pk_sites INTEGER PRIMARY KEY, name TEXT, url TEXT, icon TEXT, category_fk INTEGER, languages TEXT, FOREIGN KEY (category_fk) REFERENCES tbl_categories(pk_categories))`);
         db.run(`CREATE TABLE IF NOT EXISTS tbl_categories (pk_categories INTEGER PRIMARY KEY, name TEXT)`);
         db.run(`CREATE TABLE IF NOT EXISTS tbl_sessions (pk_sessions INTEGER PRIMARY KEY, user_fk INTEGER, token TEXT, valid_until INTEGER, FOREIGN KEY (user_fk) REFERENCES tbl_users(pk_users))`);
         db.run(`CREATE TABLE IF NOT EXISTS tbl_sites_visited (pk_sites_visited INTEGER PRIMARY KEY, site_fk INTEGER, date_visited INTEGER, FOREIGN KEY (site_fk) REFERENCES tbl_sites(pk_sites))`);
-        db.run(`CREATE TABLE IF NOT EXISTS tbl_sites_languages (
-        site_fk INTEGER,
-        language_fk INTEGER,
-        FOREIGN KEY (site_fk) REFERENCES tbl_sites(pk_sites),
-        FOREIGN KEY (language_fk) REFERENCES tbl_languages(pk_languages)
-    )`);
         // Insert admin user into tbl_users
         db.run(`INSERT INTO tbl_users (username, password_hash) VALUES (?, ?)`, [adminUsername, hashedPassword]);
     });

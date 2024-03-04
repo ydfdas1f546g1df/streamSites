@@ -122,34 +122,24 @@ app.post('/admin/session', (req, res) => {
 
 
 app.post('/sites', (req, res) => {
-    const {start, end} = req.body
-    let allSQL = `
+    const {start, end, search} = req.body
+let allSQL = `
 SELECT
     tbl_sites.pk_sites,
     tbl_sites.name,
     tbl_sites.url,
     tbl_sites.icon,
-    (SELECT tbl_categories.name FROM tbl_categories WHERE tbl_sites.category_fk = tbl_categories.pk_categories) AS category,
-    GROUP_CONCAT(tbl_languages.name) AS languages
+    tbl_categories.name as category,
+    tbl_sites.languages
 FROM
     tbl_sites
 JOIN
-    tbl_sites_languages ON tbl_sites.pk_sites = tbl_sites_languages.site_fk
-JOIN
-    tbl_languages ON tbl_sites_languages.language_fk = tbl_languages.pk_languages
-WHERE
-    tbl_sites_languages.site_fk = tbl_sites.pk_sites
-GROUP BY
-    tbl_sites.name,
-    tbl_sites.url,
-    tbl_sites.icon,
-    tbl_sites.category_fk
+    tbl_categories ON tbl_sites.category_fk = tbl_categories.pk_categories
+${search !== undefined ? `WHERE (tbl_sites.name LIKE '%${search}%' OR tbl_sites.url LIKE '%${search}%' OR tbl_sites.icon LIKE '%${search}%')` : ''}
 ORDER BY
     tbl_sites.pk_sites
+${start !== undefined && end !== undefined ? `LIMIT ${start}, ${end}` : ''}
 `;
-    if (start !== undefined && end !== undefined) {
-        allSQL += ` LIMIT ${start}, ${end}`;
-    }
 
 
     // console.log(allSQL)
@@ -160,7 +150,7 @@ ORDER BY
                 return;
             }
             rows.forEach(row => {
-                row.languages = row.languages.split(',');
+                row.languages = row.languages.split(',').map(lang => lang.trim());
             });
             db.get(`SELECT COUNT(*) as count FROM tbl_sites`, (err, row) => {
                 if (err) {
@@ -188,16 +178,8 @@ app.delete('/sites/delete', (req, res) => {
                     message: "error"
                 });
             } else {
-                db.run(`DELETE FROM tbl_sites_languages WHERE site_fk = ?`, [pk_sites], (err) => {
-                    if (err) {
-                        res.json({
-                            message: "error"
-                        });
-                    } else {
-                        res.json({
-                            message: "success"
-                        });
-                    }
+                res.json({
+                    message: "success"
                 });
             }
         });
@@ -208,31 +190,19 @@ app.put('/sites/edit', (req, res) => {
     const {pk_sites, name, url, icon, category, languages} = req.body.data;
     const token = req.body.token;
     authenticate(token, () => {
-        db.run(`DELETE FROM tbl_sites_languages WHERE site_fk = ?`, [pk_sites], (err) => {
+
+        db.run(`UPDATE tbl_sites SET name = ?, url = ?, icon = ?, category_fk = (SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), languages = ? WHERE pk_sites = ?`, [name, url, icon, category,languages.join(","), pk_sites], (err) => {
             if (err) {
-                console.log()
                 res.json({
                     message: "error"
                 });
             } else {
-                db.run(`UPDATE tbl_sites SET name = ?, url = ?, icon = ?, category_fk = ? WHERE pk_sites = ?`, [name, url, icon, category, pk_sites], (err) => {
-                    if (err) {
-                        res.json({
-                            message: "error"
-                        });
-                    } else {
-                        const stmt = db.prepare(`INSERT INTO tbl_sites_languages (site_fk, language_fk) VALUES (?, (SELECT pk_languages FROM tbl_languages WHERE tbl_languages.name = ?))`);
-                        languages.forEach(language => {
-                            stmt.run([pk_sites, language]);
-                        });
-                        stmt.finalize();
-                        res.json({
-                            message: "success"
-                        });
-                    }
+                res.json({
+                    message: "success"
                 });
             }
         });
+
     });
 });
 
@@ -240,17 +210,12 @@ app.post('/sites/add', (req, res) => {
     const {name, url, icon, category, languages} = req.body.data;
     const token = req.body.token;
     authenticate(token, () => {
-        db.run(`INSERT INTO tbl_sites (name, url, icon, category_fk) VALUES (?, ?, ?, ?)`, [name, url, icon, category], function (err) {
+        db.run(`INSERT INTO tbl_sites (name, url, icon, category_fk, languages) VALUES (?, ?, ?,(SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), ?)`, [name, url, icon, category, languages.join(",")], function (err) {
             if (err) {
                 res.json({
                     message: "error"
                 });
             } else {
-                const stmt = db.prepare(`INSERT INTO tbl_sites_languages (site_fk, language_fk) VALUES (?, (SELECT pk_languages FROM tbl_languages WHERE tbl_languages.name = ?))`);
-                languages.forEach(language => {
-                    stmt.run([this.lastID, language]);
-                });
-                stmt.finalize();
                 res.json({
                     message: "success"
                 });
@@ -273,18 +238,6 @@ app.get('/categories', (req, res) => {
     });
 });
 
-app.get('/languages', (req, res) => {
-    db.all(`SELECT * FROM tbl_languages`, (err, rows) => {
-        if (err) {
-            console.error(err.message);
-            return;
-        }
-        res.json({
-            message: "success",
-            data: rows
-        });
-    });
-});
 
 app.post('/visits', (req, res) => {
     const pk_sites = req.body.pk_sites;

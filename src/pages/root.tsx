@@ -4,7 +4,7 @@ import CategoriesElement from "@/components/categoriesElement.tsx";
 import FilterMenuElement from "@/components/filterMenuElement.tsx";
 import SiteInterface from "@/interfaces/siteInterface.ts";
 import CategoriesInterface from "@/interfaces/categoriesInterface.ts";
-import LanguagesInterface from "@/interfaces/languagesInterface.ts";
+
 
 
 const Root = () => {
@@ -32,27 +32,22 @@ const Root = () => {
         };
 
         const promises = [
-            fetchData(apiurl + "/languages", "GET"),
             fetchData(apiurl + "/sites", "POST"),
             fetchData(apiurl + "/categories", "GET")
         ];
 
         Promise.all(promises)
-            .then(([languagesData, sitesData, categoriesData]) => {
-                const languages = languagesData.map((language: LanguagesInterface) => language.name).sort();
-                const categories = categoriesData.map((category: CategoriesInterface) => category.name).sort();
-                setLanguages(languages);
-                setCategories(categories);
-                setSelectedCategories(categories);
-                setSelectedLanguages(languages);
+            .then(([sitesData, categoriesData]) => {
+                const tmpLanguages = sitesData.map((site: SiteInterface) => site.languages).flat().filter((value: string, index: number, self: string[]) => self.indexOf(value) === index).sort();
+                const tmpCategories = categoriesData.map((category: CategoriesInterface) => category.name).sort();
+                setLanguages(tmpLanguages);
+                setCategories(tmpCategories);
+                setSelectedCategories(tmpCategories);
+                setSelectedLanguages(tmpLanguages);
                 setData(sitesData);
             })
             .catch(error => console.error("Error fetching data:", error));
     }, [apiurl]);
-    //
-    // console.log("data", data);
-    // console.log("categories", categories);
-    // console.log("languages", languages);
 
     const filteredData = useMemo(() => {
         return data.filter(site =>
@@ -60,7 +55,6 @@ const Root = () => {
             && selectedCategories.includes(site.category)
         ).filter(site => site.name.toLowerCase().includes(searchQuery.toLowerCase()));
     }, [data, selectedLanguages, selectedCategories, searchQuery]);
-
 
     const categoriesedData = useMemo(() => {
         const tempCategoriesedData: { [key: string]: SiteInterface[] } = {};
@@ -85,7 +79,7 @@ const Root = () => {
         <div className="flex gap-4 justify-center overflow-hidden h-full">
             <AsideElement categories={categories} sites={sortedCategoriesedData}/>
             <div className="flex-1 overflow-hidden min-h-screen" style={{
-                maxminHeight: "calc(100vh - 8rem)",
+                maxHeight: "calc(100vh - 8rem)",
                 overflowY: "auto",
                 scrollbarWidth: "none",
                 msOverflowStyle: "none"

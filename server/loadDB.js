@@ -20,25 +20,18 @@ function LoadDB(callback) {
             console.log('Database already populated.');
         } else {
             console.log('Database not populated. Populating database...');
+            // eslint-disable-next-line no-undef
             const fileData = fs.readFileSync(path.join(process.cwd(), 'data', 'data.json'));
             const data = JSON.parse(fileData);
-            const languages = [...new Set(data.map(site => site.languages).flat())];
             const categories = [...new Set(data.map(site => site.category))];
 
             db.serialize(() => {
-                languages.forEach(language => {
-                    db.run(`INSERT INTO tbl_languages (name) VALUES (?)`, [language]);
-                });
-
                 categories.forEach(category => {
                     db.run(`INSERT INTO tbl_categories (name) VALUES (?)`, [category]);
                 });
 
                 data.forEach(site => {
-                    db.run(`INSERT INTO tbl_sites (name, url, icon, category_fk) VALUES (?, ?, ?, (SELECT pk_categories FROM tbl_categories WHERE name = ?))`, [site.name, site.url, site.icon, site.category]);
-                    site.languages.forEach(language => {
-                        db.run(`INSERT INTO tbl_sites_languages (site_fk, language_fk) VALUES ((SELECT pk_sites FROM tbl_sites WHERE name = ?), (SELECT pk_languages FROM tbl_languages WHERE name = ?))`, [site.name, language]);
-                    });
+                    db.run(`INSERT INTO tbl_sites (name, url, icon, category_fk, languages) VALUES (?, ?, ?, (SELECT pk_categories FROM tbl_categories WHERE name = ?), ?)`, [site.name, site.url, site.icon, site.category, site.languages.join(', ')]);
                 });
                 console.log('Data loaded into database.');
             });

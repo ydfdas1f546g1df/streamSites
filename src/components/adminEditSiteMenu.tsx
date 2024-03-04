@@ -1,17 +1,25 @@
 import {useEffect, useRef, useState} from "react";
 import siteInterface from "@/interfaces/siteInterface.ts";
 import {useAuth} from "@/utils/auth.tsx";
+import SiteInterface from "@/interfaces/siteInterface.ts";
 
 const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, maxRows}: {
     data: siteInterface,
     setSelectedRow: (row: number | null) => void
-    setData: (data: siteInterface[]) => void
+    setData: (data: (SiteInterface | {
+        languages: string[] | undefined;
+        pk_sites: number;
+        name: string;
+        icon: string;
+        category: string;
+        url: string
+    })[]) => void
     allData: siteInterface[]
     setMaxRows: (maxRows: number) => void
     maxRows: number
 }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState<{pk_categories: number, name:string}[]>([]);
     const imageRef = useRef(new Image())
     const iconRef = useRef<HTMLInputElement>(null)
     const languagesRef = useRef<HTMLInputElement>(null)
@@ -92,12 +100,13 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
         )
     }
     const handleSave = () => {
+        
         const formData = {
             pk_sites: 0,
             name: nameRef.current?.value,
             url: urlRef.current?.value,
             icon: iconRef.current?.value,
-            category: categoryRef.current?.value,
+            category: categories[categoryRef.current?.selectedIndex as number].name,
             languages: languagesRef.current?.value.split(",").map((language: string) => language.trim())
         }
         if (formData.name === "" || formData.url === "" || formData.icon === "" || formData.category === "") return

@@ -16,20 +16,9 @@ SELECT
     tbl_sites.url,
     tbl_sites.icon,
     (SELECT tbl_categories.name FROM tbl_categories WHERE tbl_sites.category_fk = tbl_categories.pk_categories) AS category,
-    GROUP_CONCAT(tbl_languages.name) AS languages
+    tbl_sites.languages
 FROM
     tbl_sites
-JOIN
-    tbl_sites_languages ON tbl_sites.pk_sites = tbl_sites_languages.site_fk
-JOIN
-    tbl_languages ON tbl_sites_languages.language_fk = tbl_languages.pk_languages
-WHERE
-    tbl_sites_languages.site_fk = tbl_sites.pk_sites
-GROUP BY
-    tbl_sites.name,
-    tbl_sites.url,
-    tbl_sites.icon,
-    tbl_sites.category_fk
 ORDER BY
     tbl_sites.name
 `;
@@ -43,9 +32,10 @@ ORDER BY
 
             // Process the rows to convert the languages string into an array
             rows.forEach(row => {
-                row.languages = row.languages.split(',');
+                row.languages = row.languages.split(',').map(lang => lang.trim());
             });
 
+            // eslint-disable-next-line no-undef
             fs.writeFileSync(path.join(process.cwd(), "data", "sites.json"), JSON.stringify(rows));
         });
     });

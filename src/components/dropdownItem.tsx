@@ -34,7 +34,7 @@ const DropdownItem = ({ categoryName, sitesData }: { categoryName: string, sites
             <ul
                 className={"ease-in-out duration-200"}
                 style={{
-                    maxminHeight: isOpen ? '100%' : '0',
+                    maxHeight: isOpen ? '100%' : '0',
                     overflow: 'hidden',
                     transition: 'max-height 0.3s ease-in-out'
                 }}

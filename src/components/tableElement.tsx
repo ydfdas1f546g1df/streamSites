@@ -1,6 +1,5 @@
 import {useState} from "react";
 import SiteInterface from "@/interfaces/siteInterface.ts";
-import {max} from "d3";
 
 const TableElement = ({
                           data, position, setPosition, maxRows, steps, setSelectedRow

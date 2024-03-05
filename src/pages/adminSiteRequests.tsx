@@ -46,7 +46,10 @@ const AdminSiteRequests = () => {
                         type="text"
                         placeholder="Search for a requests..."
                         className="p-2 rounded-md bg-darkgray-800 text-darkgray-100 bg-transparent border-[1px] border-darkgray-700 ease-in-out duration-200 transition-colors focus:outline-none focus:border-darkgray-0"
-                        onChange={(e) => setTableSearchQuery(e.target.value)}
+                        onChange={(e) => {
+                            setTableSearchQuery(e.target.value)
+                            setPosition(0)
+                        }}
                     />
                 </div>
                 <TableElement

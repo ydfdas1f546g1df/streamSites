@@ -141,7 +141,14 @@ ORDER BY
     tbl_site_requests.pk_site_requests
 ${start !== undefined && end !== undefined ? `LIMIT ${start}, ${end}` : ''}
 `;
-    authenticate(token, () => {
+    authenticate(token, (valid) => {
+        if (!valid) {
+            res.json({
+                message: "failure",
+                valid: false
+            });
+            return;
+        }
         db.serialize(() => {
             db.all(allSQL, (err, rows) => {
                 if (err) {
@@ -217,7 +224,14 @@ ${start !== undefined && end !== undefined ? `LIMIT ${start}, ${end}` : ''}
 app.delete('/sites/delete', (req, res) => {
     const pk_sites = req.body.pk_sites;
     const token = req.body.token;
-    authenticate(token, () => {
+    authenticate(token, (valid) => {
+        if (!valid) {
+            res.json({
+                message: "failure",
+                valid: false
+            });
+            return;
+        }
         db.run(`DELETE FROM tbl_sites WHERE pk_sites = ?`, [pk_sites], (err) => {
             if (err) {
                 res.json({
@@ -235,7 +249,15 @@ app.delete('/sites/delete', (req, res) => {
 app.put('/sites/edit', (req, res) => {
     const {pk_sites, name, url, icon, category, languages} = req.body.data;
     const token = req.body.token;
-    authenticate(token, () => {
+    authenticate(token, (valid) => {
+        if (!valid) {
+            res.json({
+                message: "failure",
+                valid: false
+            });
+            return;
+        }
+        
 
         db.run(`UPDATE tbl_sites SET name = ?, url = ?, icon = ?, category_fk = (SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), languages = ? WHERE pk_sites = ?`, [name, url, icon, category, languages.join(","), pk_sites], (err) => {
             if (err) {
@@ -255,7 +277,15 @@ app.put('/sites/edit', (req, res) => {
 app.post('/sites/add', (req, res) => {
     const {name, url, icon, category, languages} = req.body.data;
     const token = req.body.token;
-    authenticate(token, () => {
+    authenticate(token, (valid) => {
+        if (!valid) {
+            res.json({
+                message: "failure",
+                valid: false
+            });
+            return;
+        }
+        
         db.run(`INSERT INTO tbl_sites (name, url, icon, category_fk, languages) VALUES (?, ?, ?,(SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), ?)`, [name, url, icon, category, languages.join(",")], function (err) {
             if (err) {
                 res.json({
@@ -289,7 +319,14 @@ app.delete('/request/remove', (req, res) => {
     const pk_site_requests = req.body.pk_site_requests;
     const token = req.body.token;
     console.log()
-    authenticate(token, () => {
+    authenticate(token, (valid) => {
+        if (!valid) {
+            res.json({
+                message: "failure",
+                valid: false
+            });
+            return;
+        }
         db.run(`DELETE FROM tbl_site_requests WHERE pk_site_requests = ?`, [pk_site_requests], (err) => {
             if (err) {
                 res.json({

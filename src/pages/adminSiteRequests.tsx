@@ -17,7 +17,7 @@ const AdminSiteRequests = () => {
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(import.meta.env["VITE_API_URL"] + "/requests",
+        fetch(import.meta.env["VITE_API_URL"] + "/api/requests",
             {
                 method: 'POST',
                 headers: {

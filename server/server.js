@@ -62,7 +62,7 @@ const authenticate = (token, callback) => {
     });
 }
 
-app.post('/admin/login', (req, res) => {
+app.post('/api/admin/login', (req, res) => {
     const {username, password} = req.body;
     db.get(`SELECT * FROM tbl_users WHERE username = ?`, [username], (err, row) => {
         if (err) {
@@ -98,7 +98,7 @@ app.post('/admin/login', (req, res) => {
     });
 });
 
-app.post('/admin/session', (req, res) => {
+app.post('/api/admin/session', (req, res) => {
     const token = req.body.token;
     db.get(`SELECT * FROM tbl_sessions WHERE token = ? and valid_until > ?`, [token, Date.now()], (err, row) => {
         if (err) {
@@ -122,7 +122,7 @@ app.post('/admin/session', (req, res) => {
     });
 });
 
-app.post('/requests', (req, res) => {
+app.post('/api/requests', (req, res) => {
     const {start, end, search, token} = req.body
     let allSQL = `
 SELECT
@@ -175,7 +175,7 @@ ${start !== undefined && end !== undefined ? `LIMIT ${start}, ${end}` : ''}
 });
 
 
-app.post('/sites', (req, res) => {
+app.post('/api/sites', (req, res) => {
     const {start, end, search} = req.body
     let allSQL = `
 SELECT
@@ -221,7 +221,7 @@ ${start !== undefined && end !== undefined ? `LIMIT ${start}, ${end}` : ''}
     });
 });
 
-app.delete('/sites/delete', (req, res) => {
+app.delete('/api/sites/delete', (req, res) => {
     const pk_sites = req.body.pk_sites;
     const token = req.body.token;
     authenticate(token, (valid) => {
@@ -246,7 +246,7 @@ app.delete('/sites/delete', (req, res) => {
     });
 });
 
-app.put('/sites/edit', (req, res) => {
+app.put('/api/sites/edit', (req, res) => {
     const {pk_sites, name, url, icon, category, languages} = req.body.data;
     const token = req.body.token;
     authenticate(token, (valid) => {
@@ -274,7 +274,7 @@ app.put('/sites/edit', (req, res) => {
     });
 });
 
-app.post('/sites/add', (req, res) => {
+app.post('/api/sites/add', (req, res) => {
     const {name, url, icon, category, languages} = req.body.data;
     const token = req.body.token;
     authenticate(token, (valid) => {
@@ -300,7 +300,7 @@ app.post('/sites/add', (req, res) => {
     });
 });
 
-app.post('/sites/request', (req, res) => {
+app.post('/api/sites/request', (req, res) => {
     const {name, url, icon, category, languages} = req.body.data;
     db.run(`INSERT INTO tbl_site_requests (name, url, icon, category_fk, languages) VALUES (?, ?, ?, (SELECT tbl_categories.pk_categories FROM tbl_categories WHERE tbl_categories.name = ?), ?)`, [name, url, icon, category, languages.join(",")], function (err) {
         if (err) {
@@ -315,7 +315,7 @@ app.post('/sites/request', (req, res) => {
     });
 });
 
-app.delete('/request/remove', (req, res) => {
+app.delete('/api/request/remove', (req, res) => {
     const pk_site_requests = req.body.pk_site_requests;
     const token = req.body.token;
     console.log()
@@ -342,7 +342,7 @@ app.delete('/request/remove', (req, res) => {
 });
 
 
-app.get('/categories', (req, res) => {
+app.get('/api/categories', (req, res) => {
     db.all(`SELECT * FROM tbl_categories`, (err, rows) => {
         if (err) {
             console.error(err.message);
@@ -356,7 +356,7 @@ app.get('/categories', (req, res) => {
 });
 
 
-app.post('/visits', (req, res) => {
+app.post('/api/visits', (req, res) => {
     const pk_sites = req.body.pk_sites;
     const date_visited = Date.now();
     db.run(`INSERT INTO tbl_sites_visited (site_fk, date_visited, ip_address) VALUES (?, ?)`, [pk_sites, date_visited, req.ip.split(":").pop()], (err) => {

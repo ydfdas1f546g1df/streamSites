@@ -49,7 +49,7 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(`${import.meta.env["VITE_API_URL"]}/categories`,
+        fetch(`${import.meta.env["VITE_API_URL"]}/api/categories`,
             {
                 method: 'GET',
                 headers: {
@@ -119,7 +119,7 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
         if (dataset.pk_sites === 0) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-expect-error
-            fetch(import.meta.env["VITE_API_URL"] + "/sites/add",
+            fetch(import.meta.env["VITE_API_URL"] + "/api/sites/add",
                 {
                     method: 'POST',
                     headers: {
@@ -150,7 +150,7 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
             setData(allData)
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-expect-error
-            fetch(import.meta.env["VITE_API_URL"] + "/sites/edit",
+            fetch(import.meta.env["VITE_API_URL"] + "/api/sites/edit",
                 {
                     method: 'PUT',
                     headers: {
@@ -180,7 +180,7 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
         }
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(`${import.meta.env["VITE_API_URL"]}/sites/delete`,
+        fetch(`${import.meta.env["VITE_API_URL"]}/api/sites/delete`,
             {
                 method: 'DELETE',
                 headers: {

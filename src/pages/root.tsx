@@ -32,8 +32,8 @@ const Root = () => {
         };
 
         const promises = [
-            fetchData(apiurl + "/sites", "POST"),
-            fetchData(apiurl + "/categories", "GET")
+            fetchData(apiurl + "/api/sites", "POST"),
+            fetchData(apiurl + "/api/categories", "GET")
         ];
 
         Promise.all(promises)

@@ -14,7 +14,7 @@ const RequestForm = () => {
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(`${import.meta.env.VITE_API_URL}/categories`)
+        fetch(`${import.meta.env.VITE_API_URL}/api/categories`)
             .then((res) => res.json())
             .then((data) => {
                 setAllCategories(data.data);
@@ -36,7 +36,7 @@ const RequestForm = () => {
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(`${import.meta.env.VITE_API_URL}/sites/request`, {
+        fetch(`${import.meta.env.VITE_API_URL}/api/sites/request`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",

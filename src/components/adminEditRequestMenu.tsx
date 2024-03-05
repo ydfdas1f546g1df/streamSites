@@ -48,7 +48,7 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(`${import.meta.env["VITE_API_URL"]}/categories`,
+        fetch(`${import.meta.env["VITE_API_URL"]}/api/categories`,
             {
                 method: 'GET',
                 headers: {
@@ -93,7 +93,7 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
         if (formData.languages?.map((language: string) => language.length !== 2).includes(true)) return
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(`${import.meta.env["VITE_API_URL"]}/sites/add`,
+        fetch(`${import.meta.env["VITE_API_URL"]}/api/sites/add`,
             {
                 method: 'POST',
                 headers: {
@@ -121,7 +121,7 @@ const AdminEditSiteMenu = ({data, setSelectedRow, setData, allData, setMaxRows, 
     const removeRequest = (pk_sites: number) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(`${import.meta.env["VITE_API_URL"]}/request/remove`,
+        fetch(`${import.meta.env["VITE_API_URL"]}/api/request/remove`,
             {
                 method: 'DELETE',
                 headers: {

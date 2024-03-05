@@ -14,7 +14,7 @@ const AdminAllSitesTable = () => {
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        fetch(import.meta.env["VITE_API_URL"] + "/sites",
+        fetch(import.meta.env["VITE_API_URL"] + "/api/sites",
             {
                 method: 'POST',
                 headers: {

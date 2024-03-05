@@ -34,7 +34,7 @@ app.use((req, res, next) => {
     // dd.mm.yyyy hh:mm:ss.ms
     const time = new Date().toLocaleString('en-GB', {timeZone: 'UTC'}).replace(/T/, ' ').replace(/\..+/, '');
     const ms = new Date().getMilliseconds();
-    console.log(time, ms, req.method, req.url, req.body, "IP:", req.ip.split(":").pop());
+    console.log(time + "." + ms, req.method, req.url, req.body, "IP:", req.ip.split(":").pop());
     next();
 });
 app.use(express.json({limit: '10mb'}));
